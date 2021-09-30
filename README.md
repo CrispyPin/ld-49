@@ -1,4 +1,2 @@
-# godot-template
-Template to save time in game jams.
-
-The main purpose is a settings system, menu and UI theme.
+# Ludum dare 49
+idk the theme is not announced yet
