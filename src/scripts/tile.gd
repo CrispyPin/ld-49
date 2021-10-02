@@ -18,6 +18,7 @@ const container_variants = [
 ]
 
 export var container_chance = 0.2
+export var container_count = 8
 
 func _ready() -> void:
 	randomize()
@@ -28,15 +29,16 @@ func _ready() -> void:
 
 
 func add_containers() -> void:
-	for _i in range(5):
-		var posx = rand_range(-25, 25)
-		var posz = rand_range(-30, 30)
+	for i in range(container_count):
+		var posx = rand_range(-24, 24)
+		var posz = rand_range(-24, 25)
+
 		var roty = rand_range(-3, 3.5)
 		var type = randi() % len(container_variants)
 		var container_node = container_variants[type].instance()
 		container_node.translation.x = posx
 		container_node.translation.z = posz
-		container_node.translation.y = 16
+		container_node.translation.y = i*12+4
 		container_node.rotation.y = roty
 		add_child(container_node)
 
