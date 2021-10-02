@@ -17,4 +17,4 @@ func _process(delta):
 	translation = player.translation + Vector3(0,2,5)
 	rotation_degrees = Vector3(-30,0,0)
 	pass
-    
+

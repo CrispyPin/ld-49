@@ -26,9 +26,9 @@ func _ready() -> void:
 
 
 func add_containers() -> void:
-	for i in range(8):
-		var posx = rand_range(-12, 12)
-		var posz = rand_range(-12, 12)
+	for i in range(5):
+		var posx = rand_range(-14, 14)
+		var posz = rand_range(-16, 16)
 		var roty = rand_range(-3, 3.5)
 		var type = randi() % len(container_variants)
 		var container_node = container_variants[type].instance()
