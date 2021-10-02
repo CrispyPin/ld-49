@@ -1,13 +1,21 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://scripts/droneController.gd" type="Script" id=1]
 [ext_resource path="res://models/drone/drone.glb" type="PackedScene" id=2]
 [ext_resource path="res://models/drone/collider.tres" type="Shape" id=3]
+[ext_resource path="res://models/smoke.mesh" type="ArrayMesh" id=4]
 
 [sub_resource type="PhysicsMaterial" id=1]
 
+[sub_resource type="Gradient" id=7]
+offsets = PoolRealArray( 0, 0.153846, 0.742857, 1 )
+colors = PoolColorArray( 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0 )
+
+[sub_resource type="GradientTexture" id=8]
+gradient = SubResource( 7 )
+
 [sub_resource type="Curve" id=5]
-_data = [ Vector2( 0, 0 ), 0.0, 0.0, 0, 0, Vector2( 0.198745, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), -1.51586, 0.0, 0, 0 ]
+_data = [ Vector2( 0, 0 ), 0.0, 0.0, 0, 0, Vector2( 0.146444, 1 ), 8.35664, -0.275903, 0, 0, Vector2( 1, 0 ), -3.72467, 0.0, 0, 0 ]
 
 [sub_resource type="CurveTexture" id=6]
 curve = SubResource( 5 )
@@ -19,30 +27,19 @@ emission_box_extents = Vector3( 1, 0, 1 )
 direction = Vector3( 0, -1, 0 )
 spread = 0.0
 gravity = Vector3( 0, 0, 0 )
-initial_velocity = 5.0
+initial_velocity = 15.0
 initial_velocity_random = 0.1
 angular_velocity = 40.0
 angular_velocity_random = 1.0
+damping = 0.1
 angle = 720.0
 angle_random = 1.0
-scale_random = 0.8
+scale = 0.5
+scale_random = 0.1
 scale_curve = SubResource( 6 )
+color_ramp = SubResource( 8 )
 
-[sub_resource type="SpatialMaterial" id=3]
-flags_transparent = true
-flags_unshaded = true
-vertex_color_use_as_albedo = true
-params_blend_mode = 1
-params_billboard_mode = 3
-particles_anim_h_frames = 1
-particles_anim_v_frames = 1
-particles_anim_loop = false
-albedo_color = Color( 0.360784, 1, 0, 1 )
-
-[sub_resource type="QuadMesh" id=2]
-material = SubResource( 3 )
-
-[node name="RigidBody" type="RigidBody"]
+[node name="Player" type="RigidBody"]
 collision_layer = 3
 collision_mask = 3
 mode = 2
@@ -64,13 +61,14 @@ transform = Transform( 0.185, 0, 0, 0, 0.185, 0, 0, 0, 0.185, 0, 0, 0 )
 
 [node name="Particles" type="Particles" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0448588, 0 )
+visible = false
 cast_shadow = 0
-amount = 20
+amount = 10
 lifetime = 0.5
 randomness = 1.0
 local_coords = false
 draw_order = 2
 process_material = SubResource( 4 )
-draw_pass_1 = SubResource( 2 )
+draw_pass_1 = ExtResource( 4 )
 
 [editable path="drone"]

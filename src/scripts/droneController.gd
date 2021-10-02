@@ -10,7 +10,7 @@ extends RigidBody
 var yAcceleration = 9.8
 var throttleSpeed = 0.2
 func _ready():
-	
+
 
 	pass # Replace with function body.
 
@@ -59,4 +59,4 @@ func _process(delta):
 		yAcceleration+=throttleSpeed
 
 
-	
+

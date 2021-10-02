@@ -13,7 +13,7 @@ extents = Vector3( 1.331, 2.282, 1.331 )
 
 [sub_resource type="BoxShape" id=4]
 
-[node name="Spatial" type="Spatial"]
+[node name="Conveyor" type="Spatial"]
 
 [node name="conveyor" parent="." instance=ExtResource( 1 )]
 
