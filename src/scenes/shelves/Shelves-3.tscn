@@ -73,3 +73,41 @@ shape = ExtResource( 3 )
 [node name="CollisionPillar8" type="CollisionShape" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 8, -24 )
 shape = ExtResource( 3 )
+
+[node name="SpawnPoints" type="Spatial" parent="."]
+
+[node name="Spatial" type="Spatial" parent="SpawnPoints"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, -4 )
+
+[node name="Spatial2" type="Spatial" parent="SpawnPoints"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7, -4 )
+
+[node name="Spatial3" type="Spatial" parent="SpawnPoints"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 11, -4 )
+
+[node name="Spatial4" type="Spatial" parent="SpawnPoints"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 15, -12 )
+
+[node name="Spatial5" type="Spatial" parent="SpawnPoints"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 11, -12 )
+
+[node name="Spatial6" type="Spatial" parent="SpawnPoints"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7, -12 )
+
+[node name="Spatial12" type="Spatial" parent="SpawnPoints"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, -12 )
+
+[node name="Spatial7" type="Spatial" parent="SpawnPoints"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 15, -20 )
+
+[node name="Spatial8" type="Spatial" parent="SpawnPoints"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 15, -28 )
+
+[node name="Spatial9" type="Spatial" parent="SpawnPoints"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 11, -28 )
+
+[node name="Spatial10" type="Spatial" parent="SpawnPoints"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7, -28 )
+
+[node name="Spatial11" type="Spatial" parent="SpawnPoints"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 11, -20 )

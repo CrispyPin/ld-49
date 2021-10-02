@@ -52,12 +52,9 @@ func add_shelves() -> void:
 
 
 func fill_shelf(shelf) -> void:
-	for z in range(4):
-		var posz = -z*8 - 4
-		for y in range(4):
-			var posy = y*4 + 4
-			var type = randi() % len(item_variants)
-			var item_node = item_variants[type].instance()
-			item_node.translation.z = posz
-			item_node.translation.y = posy
-			shelf.add_child(item_node)
+	for s in shelf.get_node("SpawnPoints").get_children():
+		var type = randi() % len(item_variants)
+		var item_node = item_variants[type].instance()
+		item_node.translation = s.translation
+		shelf.add_child(item_node)
+
