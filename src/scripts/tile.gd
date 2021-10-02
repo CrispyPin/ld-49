@@ -16,18 +16,40 @@ const container_variants = [
 	preload("res://scenes/containers/Container-1.tscn"),
 	preload("res://scenes/containers/Container-2.tscn"),
 	preload("res://scenes/containers/Forklift.tscn"),
-	preload("res://scenes/DodecaCopter.tscn"),
 ]
 
-export var container_chance = 0.2
+const forklift = preload("res://scenes/containers/Forklift.tscn")
+
+const enemy = preload("res://scenes/DodecaCopter.tscn")
+
+export var container_chance = 0.15
+export var forklift_chance = 0.2
 export var container_count = 8
 
 func _ready() -> void:
 	randomize()
-	if randf() < container_chance:
+	var r = randf()
+	if r < container_chance:
 		add_containers()
+	elif r < forklift_chance + container_chance:
+		add_forklifts()
 	else:
 		add_shelves()
+
+func add_forklifts():
+	for i in range(4):
+		var posx = rand_range(-24, 24)
+		var posz = rand_range(-24, 25)
+
+		var roty = rand_range(-3, 3.5)
+		var f = forklift.instance()
+		f.translation = Vector3(posx, 1, posz)
+		f.rotation.y = roty
+		add_child(f)
+
+	for i in range(100):
+		add_item(Vector3(rand_range(-16, 16), rand_range(2,15), rand_range(-24, 24)))
+
 
 
 func add_containers() -> void:
@@ -58,8 +80,12 @@ func add_shelves() -> void:
 
 func fill_shelf(shelf) -> void:
 	for s in shelf.get_node("SpawnPoints").get_children():
-		var type = randi() % len(item_variants)
-		var item_node = item_variants[type].instance()
-		item_node.translation = s.translation
-		shelf.add_child(item_node)
+		add_item(s.translation + shelf.translation)
+
+
+func add_item(pos: Vector3):
+	var type = randi() % len(item_variants)
+	var item = item_variants[type].instance()
+	item.translation = pos
+	add_child(item)
 
