@@ -1,7 +1,8 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://scripts/droneController.gd" type="Script" id=1]
 [ext_resource path="res://models/drone/drone.glb" type="PackedScene" id=2]
+[ext_resource path="res://scripts/drone_prop.gd" type="Script" id=3]
 [ext_resource path="res://models/smoke.mesh" type="ArrayMesh" id=4]
 
 [sub_resource type="PhysicsMaterial" id=1]
@@ -72,6 +73,7 @@ shape = SubResource( 6 )
 
 [node name="drone" parent="." instance=ExtResource( 2 )]
 transform = Transform( 0.185, 0, 0, 0, 0.185, 0, 0, 0, 0.185, 0, 0, 0 )
+script = ExtResource( 3 )
 
 [node name="Particles" type="Particles" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00836658, -0.326378, -0.013586 )
