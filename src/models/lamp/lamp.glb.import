@@ -2,12 +2,12 @@
 
 importer="scene"
 type="PackedScene"
-path="res://.import/drone.glb-15a9f87f066f105b89ed98c29391c9f4.scn"
+path="res://.import/lamp.glb-baa9bc7477e03557042ec2f0ab344718.scn"
 
 [deps]
 
-source_file="res://models/drone.glb"
-dest_files=[ "res://.import/drone.glb-15a9f87f066f105b89ed98c29391c9f4.scn" ]
+source_file="res://models/lamp/lamp.glb"
+dest_files=[ "res://.import/lamp.glb-baa9bc7477e03557042ec2f0ab344718.scn" ]
 
 [params]
 
