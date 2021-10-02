@@ -16,10 +16,11 @@ const container_variants = [
 	preload("res://scenes/containers/Container-2.tscn"),
 ]
 
+export var container_chance = 0.2
 
 func _ready() -> void:
 	randomize()
-	if randf() < 0.2:
+	if randf() < container_chance:
 		add_containers()
 	else:
 		add_shelves()
