@@ -17,10 +17,6 @@ var throttleSpeed = 0.5
 var xdir = 0; # left right 
 var zdir = 0; # forward backward
 
-
-
-
-
 func _integrate_forces(state):
 	#state.set_angular_velocity(Vector3(0,yAcceleration,0))
 	state.transform = transform.interpolate_with(transform.looking_at(translation + Vector3(0,zdir,-1),Vector3(xdir,1,zdir)),state.step)
@@ -39,7 +35,6 @@ func _physics_process(delta):
 	add_central_force(mass*Vector3(xAcceleration,totalYAcceleration,zAcceleration))
 	#rotation_degrees.x = yAcceleration;
 	#rotate_y(delta*yAcceleration)
-
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
