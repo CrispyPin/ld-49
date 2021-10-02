@@ -26,6 +26,7 @@ func add_shelves() -> void:
 			add_child(shelf_node)
 			fill_shelf(shelf_node)
 
+
 func fill_shelf(shelf):
 	for z in range(4):
 		var posz = -z*8 - 4

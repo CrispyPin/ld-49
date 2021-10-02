@@ -8,7 +8,7 @@
 [sub_resource type="BoxShape" id=1]
 extents = Vector3( 2.2, 0.442601, 4 )
 
-[node name="Shelves-1" type="StaticBody"]
+[node name="Shelves-2" type="StaticBody"]
 
 [node name="shelves-2" parent="." instance=ExtResource( 2 )]
 
