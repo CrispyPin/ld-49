@@ -10,10 +10,10 @@
 extents = Vector3( 3.02362, 0.332249, 3.6763 )
 
 [sub_resource type="BoxShape" id=5]
-extents = Vector3( 0.619678, 0.68245, 0.922558 )
+extents = Vector3( 0.619678, 1.09301, 1.58557 )
 
 [sub_resource type="BoxShape" id=6]
-extents = Vector3( 0.923613, 0.68245, 0.42135 )
+extents = Vector3( 1.61378, 1.05407, 0.42135 )
 
 [sub_resource type="SpatialMaterial" id=2]
 flags_transparent = true
@@ -53,19 +53,19 @@ transform = Transform( 0.185, 0, 0, 0, 0.185, 0, 0, 0, 0.185, 0, 0, 0 )
 shape = SubResource( 4 )
 
 [node name="CollisionBase2" type="CollisionShape" parent="."]
-transform = Transform( 0.185, 0, 0, 0, 0.185, 0, 0, 0, 0.185, 0.53, 0.115, 0 )
+transform = Transform( 0.185, 0, 0, 0, 0.185, 0, 0, 0, 0.185, 0.530964, 0.189239, 0.00147176 )
 shape = SubResource( 5 )
 
 [node name="CollisionBase3" type="CollisionShape" parent="."]
-transform = Transform( 0.185, 0, 0, 0, 0.185, 0, 0, 0, 0.185, -0.53, 0.115, 0 )
+transform = Transform( 0.185, 0, 0, 0, 0.185, 0, 0, 0, 0.185, -0.53, 0.191142, 0 )
 shape = SubResource( 5 )
 
 [node name="CollisionBase4" type="CollisionShape" parent="."]
-transform = Transform( 0.185, 0, 0, 0, 0.185, 0, 0, 0, 0.185, 0, 0.115, 0.670412 )
+transform = Transform( 0.185, 0, 0, 0, 0.185, 0, 0, 0, 0.185, 0, 0.177902, 0.670412 )
 shape = SubResource( 6 )
 
 [node name="CollisionBase5" type="CollisionShape" parent="."]
-transform = Transform( 0.185, 0, 0, 0, 0.185, 0, 0, 0, 0.185, 0.00110912, 0.116511, -0.663134 )
+transform = Transform( 0.185, 0, 0, 0, 0.185, 0, 0, 0, 0.185, 0.00110912, 0.179413, -0.663134 )
 shape = SubResource( 6 )
 
 [node name="drone" parent="." instance=ExtResource( 2 )]
