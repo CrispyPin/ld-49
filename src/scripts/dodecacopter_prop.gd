@@ -1,7 +1,7 @@
 extends Spatial
 
 
-export var rot_speed = 64
+export var rot_speed = 20
 
 var props: Array
 
