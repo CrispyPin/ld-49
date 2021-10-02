@@ -1,7 +1,11 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://models/pipe/pipe.glb" type="PackedScene" id=1]
 [ext_resource path="res://scripts/Creator.gd" type="Script" id=2]
+[ext_resource path="res://scripts/BoxConsumer.gd" type="Script" id=3]
+
+[sub_resource type="BoxShape" id=3]
+extents = Vector3( 1.99016, 0.888713, 1.9873 )
 
 [sub_resource type="BoxShape" id=1]
 extents = Vector3( 0.395245, 2.91227, 1.99428 )
@@ -13,6 +17,21 @@ extents = Vector3( 1.994, 2.912, 0.395 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.68274, 0 )
 
 [node name="pipeLower" parent="." instance=ExtResource( 1 )]
+
+[node name="BoxConsumer" type="Area" parent="pipeLower"]
+script = ExtResource( 3 )
+
+[node name="CollisionShape" type="CollisionShape" parent="pipeLower/BoxConsumer"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.51717, 0 )
+shape = SubResource( 3 )
+
+[node name="PlayerBarrier" type="StaticBody" parent="pipeLower"]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape" type="CollisionShape" parent="pipeLower/PlayerBarrier"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.49243, 0 )
+shape = SubResource( 3 )
 
 [node name="StaticBody" type="StaticBody" parent="pipeLower"]
 
@@ -35,6 +54,15 @@ shape = SubResource( 2 )
 [node name="pipeUpper" parent="pipeLower" instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 14.125, 0 )
 
+[node name="PlayerBarrier" type="StaticBody" parent="pipeLower/pipeUpper"]
+transform = Transform( 1, 0, 0, 0, -1, -8.74228e-08, 0, 8.74228e-08, -1, 0, 3.25914, -2.84923e-07 )
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape" type="CollisionShape" parent="pipeLower/pipeUpper/PlayerBarrier"]
+transform = Transform( 1, 0, 0, 0, 0.999999, 0, 0, 0, 0.999999, 0, 1.752, 0 )
+shape = SubResource( 3 )
+
 [node name="StaticBody" type="StaticBody" parent="pipeLower/pipeUpper"]
 
 [node name="C1_2" type="CollisionShape" parent="pipeLower/pipeUpper/StaticBody"]
@@ -56,3 +84,5 @@ shape = SubResource( 2 )
 [node name="spawnPoint" type="Spatial" parent="pipeLower/pipeUpper"]
 transform = Transform( 1, 0, 0, 0, 1, 1.42109e-14, 0, -1.42109e-14, 1, 0, 1.38499, -1.21079e-07 )
 script = ExtResource( 2 )
+
+[connection signal="body_entered" from="pipeLower/BoxConsumer" to="pipeLower/BoxConsumer" method="_on_BoxConsumer_body_entered"]
