@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://models/conveyor/conveyor.glb" type="PackedScene" id=1]
 
@@ -6,30 +6,52 @@
 extents = Vector3( 4.04354, 1, 1 )
 
 [sub_resource type="BoxShape" id=2]
-extents = Vector3( 1, 0.522345, 1 )
+extents = Vector3( 3.917, 0.351, 0.155 )
+
+[sub_resource type="BoxShape" id=3]
+extents = Vector3( 1.331, 2.282, 1.331 )
+
+[sub_resource type="BoxShape" id=4]
 
 [node name="Spatial" type="Spatial"]
 
 [node name="conveyor" parent="." instance=ExtResource( 1 )]
 
-[node name="RigidBody" type="RigidBody" parent="."]
-mode = 1
-can_sleep = false
-linear_velocity = Vector3( 1, 0, 0 )
+[node name="main" type="StaticBody" parent="."]
+constant_linear_velocity = Vector3( 1, 0, 0 )
 
-[node name="main" type="CollisionShape" parent="RigidBody"]
+[node name="main" type="CollisionShape" parent="main"]
 transform = Transform( 1, 0, 0, 0, 0.558372, 0, 0, 0, 1, 3.18, 1.51687, 0 )
 shape = SubResource( 1 )
 
-[node name="StaticBody" type="StaticBody" parent="."]
-visible = false
+[node name="sides" type="StaticBody" parent="."]
 
-[node name="side1" type="CollisionShape" parent="StaticBody"]
-transform = Transform( 3.91683, 0, 0, 0, 0.672179, 0, 0, 0, 0.155303, 3.05105, 2.10573, -0.879326 )
+[node name="side2" type="CollisionShape" parent="sides"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.051, 2.106, 0.879 )
 shape = SubResource( 2 )
 
-[node name="side2" type="CollisionShape" parent="StaticBody"]
-transform = Transform( 3.91683, 0, 0, 0, 0.672179, 0, 0, 0, 0.155303, 3.05287, 2.11412, 0.879702 )
+[node name="side1" type="CollisionShape" parent="sides"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.05105, 2.10573, -0.879326 )
 shape = SubResource( 2 )
+
+[node name="Playerhitbox" type="StaticBody" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape" type="CollisionShape" parent="Playerhitbox"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.9546, 1.77378, 0 )
+shape = SubResource( 3 )
+
+[node name="Area" type="Area" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.47298, 2.77294, 0 )
+space_override = 3
+gravity_vec = Vector3( 0, 1, 0 )
+gravity = 200.0
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape" type="CollisionShape" parent="Area"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.660755, 0, 0 )
+shape = SubResource( 4 )
 
 [editable path="conveyor"]

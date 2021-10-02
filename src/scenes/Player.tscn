@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://scripts/droneController.gd" type="Script" id=1]
 [ext_resource path="res://models/drone/drone.glb" type="PackedScene" id=2]
@@ -6,7 +6,28 @@
 
 [sub_resource type="PhysicsMaterial" id=1]
 
+[sub_resource type="ParticlesMaterial" id=4]
+resource_local_to_scene = true
+emission_shape = 2
+emission_box_extents = Vector3( 1, 0, 1 )
+
+[sub_resource type="SpatialMaterial" id=3]
+flags_transparent = true
+flags_unshaded = true
+vertex_color_use_as_albedo = true
+params_blend_mode = 1
+params_billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+albedo_color = Color( 0.360784, 1, 0, 1 )
+
+[sub_resource type="QuadMesh" id=2]
+material = SubResource( 3 )
+
 [node name="RigidBody" type="RigidBody"]
+collision_layer = 3
+collision_mask = 3
 mode = 2
 physics_material_override = SubResource( 1 )
 continuous_cd = true
@@ -23,5 +44,15 @@ shape = ExtResource( 3 )
 
 [node name="drone" parent="." instance=ExtResource( 2 )]
 transform = Transform( 0.185, 0, 0, 0, 0.185, 0, 0, 0, 0.185, 0, 0, 0 )
+
+[node name="Particles" type="Particles" parent="."]
+cast_shadow = 0
+amount = 20
+lifetime = 0.5
+randomness = 1.0
+local_coords = false
+draw_order = 2
+process_material = SubResource( 4 )
+draw_pass_1 = SubResource( 2 )
 
 [editable path="drone"]
