@@ -9,6 +9,7 @@ const shelf_variants = [
 const item_variants = [
 	preload("res://scenes/shelf-items/ShelfItem-1.tscn"),
 	preload("res://scenes/shelf-items/ShelfItem-2.tscn"),
+	preload("res://scenes/shelf-items/ShelfItem-3.tscn"),
 ]
 
 const container_variants = [
