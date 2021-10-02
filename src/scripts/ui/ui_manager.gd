@@ -1,7 +1,7 @@
 extends Node
 
 
-export var instant_start = false
+export var instant_start = true
 export var game_scene = preload("res://scenes/Game.tscn")
 
 var current_menu = "Main"
