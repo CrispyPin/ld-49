@@ -15,7 +15,7 @@ func _ready():
 	pass # Replace with function body.
 
 
-var tiltSpeed = 4
+var tiltSpeed = 2
 
 var xdir = 0; # left right
 var zdir = 0; # forward backward
@@ -57,6 +57,8 @@ func _process(delta):
 		yAcceleration-=throttleSpeed
 	if Input.is_action_pressed("increase_throttle"):
 		yAcceleration+=throttleSpeed
+
+	yAcceleration = max(yAcceleration, 9.8*1.05)
 
 
 
