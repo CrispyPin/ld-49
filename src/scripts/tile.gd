@@ -1,10 +1,15 @@
 extends Spatial
 
-const shelf_variants = [preload("res://scenes/shelves/Shelves-1.tscn"),
-						preload("res://scenes/shelves/Shelves-2.tscn"),
-						preload("res://scenes/shelves/Shelves-3.tscn")]
+const shelf_variants = [
+	preload("res://scenes/shelves/Shelves-1.tscn"),
+	preload("res://scenes/shelves/Shelves-2.tscn"),
+	preload("res://scenes/shelves/Shelves-3.tscn"),
+]
 
-const item_variants = [preload("res://scenes/shelf-items/ShelfItem-1.tscn")]
+const item_variants = [
+	preload("res://scenes/shelf-items/ShelfItem-1.tscn"),
+	preload("res://scenes/shelf-items/ShelfItem-2.tscn"),
+]
 
 
 func _ready() -> void:
