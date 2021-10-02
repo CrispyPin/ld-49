@@ -1,43 +1,38 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://scripts/droneController.gd" type="Script" id=1]
 [ext_resource path="res://models/drone/drone.glb" type="PackedScene" id=2]
-[ext_resource path="res://models/drone/collider.tres" type="Shape" id=3]
 [ext_resource path="res://models/smoke.mesh" type="ArrayMesh" id=4]
 
 [sub_resource type="PhysicsMaterial" id=1]
 
-[sub_resource type="Gradient" id=7]
-offsets = PoolRealArray( 0, 0.153846, 0.742857, 1 )
-colors = PoolColorArray( 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0 )
+[sub_resource type="BoxShape" id=4]
+extents = Vector3( 3.02362, 0.332249, 3.6763 )
 
-[sub_resource type="GradientTexture" id=8]
-gradient = SubResource( 7 )
+[sub_resource type="BoxShape" id=5]
+extents = Vector3( 0.619678, 0.68245, 0.922558 )
 
-[sub_resource type="Curve" id=5]
-_data = [ Vector2( 0, 0 ), 0.0, 0.0, 0, 0, Vector2( 0.146444, 1 ), 8.35664, -0.275903, 0, 0, Vector2( 1, 0 ), -3.72467, 0.0, 0, 0 ]
+[sub_resource type="BoxShape" id=6]
+extents = Vector3( 0.923613, 0.68245, 0.42135 )
 
-[sub_resource type="CurveTexture" id=6]
-curve = SubResource( 5 )
+[sub_resource type="SpatialMaterial" id=2]
+flags_transparent = true
+albedo_color = Color( 0.654902, 0.654902, 0.654902, 0.203922 )
 
-[sub_resource type="ParticlesMaterial" id=4]
+[sub_resource type="Curve" id=7]
+_data = [ Vector2( 0, 1 ), 0.0, 0.0460925, 0, 0, Vector2( 0.702422, 0.954545 ), -0.175151, -1.06511, 0, 0, Vector2( 1, 0 ), -9.19545, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=8]
+curve = SubResource( 7 )
+
+[sub_resource type="ParticlesMaterial" id=3]
 resource_local_to_scene = true
 emission_shape = 2
 emission_box_extents = Vector3( 1, 0, 1 )
-direction = Vector3( 0, -1, 0 )
-spread = 0.0
-gravity = Vector3( 0, 0, 0 )
-initial_velocity = 15.0
-initial_velocity_random = 0.1
-angular_velocity = 40.0
-angular_velocity_random = 1.0
-damping = 0.1
-angle = 720.0
+angle = 570.4
 angle_random = 1.0
 scale = 0.5
-scale_random = 0.1
-scale_curve = SubResource( 6 )
-color_ramp = SubResource( 8 )
+scale_curve = SubResource( 8 )
 
 [node name="Player" type="RigidBody"]
 collision_layer = 3
@@ -55,21 +50,38 @@ script = ExtResource( 1 )
 
 [node name="CollisionBase" type="CollisionShape" parent="."]
 transform = Transform( 0.185, 0, 0, 0, 0.185, 0, 0, 0, 0.185, 0, 0, 0 )
-shape = ExtResource( 3 )
+shape = SubResource( 4 )
+
+[node name="CollisionBase2" type="CollisionShape" parent="."]
+transform = Transform( 0.185, 0, 0, 0, 0.185, 0, 0, 0, 0.185, 0.53, 0.115, 0 )
+shape = SubResource( 5 )
+
+[node name="CollisionBase3" type="CollisionShape" parent="."]
+transform = Transform( 0.185, 0, 0, 0, 0.185, 0, 0, 0, 0.185, -0.53, 0.115, 0 )
+shape = SubResource( 5 )
+
+[node name="CollisionBase4" type="CollisionShape" parent="."]
+transform = Transform( 0.185, 0, 0, 0, 0.185, 0, 0, 0, 0.185, 0, 0.115, 0.670412 )
+shape = SubResource( 6 )
+
+[node name="CollisionBase5" type="CollisionShape" parent="."]
+transform = Transform( 0.185, 0, 0, 0, 0.185, 0, 0, 0, 0.185, 0.00110912, 0.116511, -0.663134 )
+shape = SubResource( 6 )
 
 [node name="drone" parent="." instance=ExtResource( 2 )]
 transform = Transform( 0.185, 0, 0, 0, 0.185, 0, 0, 0, 0.185, 0, 0, 0 )
 
 [node name="Particles" type="Particles" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0448588, 0 )
-visible = false
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00836658, -0.326378, -0.013586 )
+material_override = SubResource( 2 )
 cast_shadow = 0
+generate_lightmap = false
 amount = 10
 lifetime = 0.5
 randomness = 1.0
 local_coords = false
 draw_order = 2
-process_material = SubResource( 4 )
+process_material = SubResource( 3 )
 draw_pass_1 = ExtResource( 4 )
 
 [editable path="drone"]

@@ -17,7 +17,7 @@ func _ready():
 
 var tiltSpeed = 4
 
-var xdir = 0; # left right 
+var xdir = 0; # left right
 var zdir = 0; # forward backward
 
 func _integrate_forces(state):
@@ -49,7 +49,7 @@ func _process(delta):
 
 	xdir = 0
 	if Input.is_action_pressed("left"):
-		xdir = -1.0	
+		xdir = -1.0
 	elif Input.is_action_pressed("right"):
 		xdir = 1.0
 
