@@ -23,7 +23,7 @@ func add_shelves() -> void:
 
 func fill_shelf(shelf):
 	for z in range(4):
-		var posz = z*8 + 4
+		var posz = -z*8 - 4
 		for y in range(4):
 			var posy = y*4 + 4
 			var type = randi() % len(item_variants)
