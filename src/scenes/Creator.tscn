@@ -10,6 +10,7 @@ extents = Vector3( 0.395245, 2.91227, 1.99428 )
 extents = Vector3( 1.994, 2.912, 0.395 )
 
 [node name="Creator" type="Spatial"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.68274, 0 )
 
 [node name="pipeLower" parent="." instance=ExtResource( 1 )]
 
@@ -53,5 +54,5 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.075, 1.6 )
 shape = SubResource( 2 )
 
 [node name="spawnPoint" type="Spatial" parent="pipeLower/pipeUpper"]
-transform = Transform( 1, 0, 0, 0, 1, 1.42109e-14, 0, -1.42109e-14, 1, 0, -3.63447, 3.17735e-07 )
+transform = Transform( 1, 0, 0, 0, 1, 1.42109e-14, 0, -1.42109e-14, 1, 0, 1.38499, -1.21079e-07 )
 script = ExtResource( 2 )
