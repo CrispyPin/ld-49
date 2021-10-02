@@ -1,14 +1,73 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://models/forklift/forklift.glb" type="PackedScene" id=1]
+[ext_resource path="res://scripts/Forklift.gd" type="Script" id=2]
 
 [sub_resource type="BoxShape" id=1]
 extents = Vector3( 1.94101, 3.70518, 3.9014 )
 
-[node name="Spatial" type="RigidBody"]
+[sub_resource type="CubeMesh" id=2]
+
+[node name="Spatial" type="VehicleBody"]
+axis_lock_angular_x = true
+axis_lock_angular_z = true
+script = ExtResource( 2 )
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.5975, 0.467039 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.94165, 0.467039 )
 shape = SubResource( 1 )
 
 [node name="forklift" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.45085, 0 )
+
+[node name="VehicleWheel" type="VehicleWheel" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.99111, 1.86355, 2.19942 )
+use_as_traction = true
+wheel_radius = 1.0
+suspension_travel = 1.0
+suspension_stiffness = 10.0
+damping_compression = 1.0
+damping_relaxation = 1.0
+
+[node name="MeshInstance" type="MeshInstance" parent="VehicleWheel"]
+mesh = SubResource( 2 )
+material/0 = null
+
+[node name="VehicleWheel2" type="VehicleWheel" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.01925, 1.82143, 2.24105 )
+use_as_traction = true
+wheel_radius = 1.0
+suspension_travel = 1.0
+suspension_stiffness = 10.0
+damping_compression = 1.0
+damping_relaxation = 1.0
+
+[node name="MeshInstance" type="MeshInstance" parent="VehicleWheel2"]
+mesh = SubResource( 2 )
+material/0 = null
+
+[node name="VehicleWheel3" type="VehicleWheel" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.00697, 1.87512, -2.51927 )
+use_as_traction = true
+use_as_steering = true
+wheel_radius = 1.0
+suspension_stiffness = 10.0
+damping_compression = 1.0
+damping_relaxation = 1.0
+
+[node name="MeshInstance" type="MeshInstance" parent="VehicleWheel3"]
+mesh = SubResource( 2 )
+material/0 = null
+
+[node name="VehicleWheel4" type="VehicleWheel" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.00339, 1.833, -2.47764 )
+use_as_traction = true
+use_as_steering = true
+wheel_radius = 1.0
+suspension_stiffness = 10.0
+damping_compression = 1.0
+damping_relaxation = 1.0
+
+[node name="MeshInstance" type="MeshInstance" parent="VehicleWheel4"]
+mesh = SubResource( 2 )
+material/0 = null

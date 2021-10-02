@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/TileManager.tscn" type="PackedScene" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://scripts/Camera.gd" type="Script" id=6]
 [ext_resource path="res://scenes/Creator.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scenes/DodecaCopter.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scenes/containers/Container-3.tscn" type="PackedScene" id=9]
 
 [node name="Game" type="Node"]
 
@@ -38,6 +39,9 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5.82898 )
 
 [node name="Creator" parent="." instance=ExtResource( 7 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.64508, 2.68911, 0 )
+
+[node name="Spatial" parent="." instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.18124, 0.737369, 0 )
 
 [node name="DodecaCopter" parent="." instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.12885, 0 )

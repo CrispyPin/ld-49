@@ -7,7 +7,8 @@ extends RigidBody
 
 
 # Called when the node enters the scene tree for the first time.
-var yAcceleration = 9.8
+var gravity = 9.8
+var yAcceleration = gravity
 var throttleSpeed = 0.2
 func _ready():
 
@@ -58,7 +59,8 @@ func _process(delta):
 	if Input.is_action_pressed("increase_throttle"):
 		yAcceleration+=throttleSpeed
 
-	yAcceleration = max(yAcceleration, 9.8*1.05)
+	yAcceleration = max(yAcceleration, gravity*1.05)
+	yAcceleration = min(yAcceleration, gravity*4.05)
 
 
 
