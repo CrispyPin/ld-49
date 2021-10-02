@@ -7,22 +7,25 @@ extends RigidBody
 
 
 # Called when the node enters the scene tree for the first time.
+var yAcceleration = 9.8
+var throttleSpeed = 0.2
 func _ready():
+	
 
 	pass # Replace with function body.
 
-var yAcceleration = 9.8
-var throttleSpeed = 0.5
+
+var tiltSpeed = 2
 
 var xdir = 0; # left right 
 var zdir = 0; # forward backward
 
 func _integrate_forces(state):
 	#state.set_angular_velocity(Vector3(0,yAcceleration,0))
-	state.transform = transform.interpolate_with(transform.looking_at(translation + Vector3(0,zdir,-1),Vector3(xdir,1,zdir)),state.step)
+	state.transform = transform.interpolate_with(transform.looking_at(translation + Vector3(0,zdir,-1),Vector3(xdir,1,zdir)),state.step*tiltSpeed)
 	pass
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	#look_at(translation + Vector3(0,zdir,-1),Vector3(xdir,1,zdir))
 	var decreaseAccelerationFactor = translation.y*0.7
 	var totalYAcceleration = (yAcceleration-decreaseAccelerationFactor)
