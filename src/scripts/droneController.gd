@@ -15,7 +15,7 @@ func _ready():
 	pass # Replace with function body.
 
 
-var tiltSpeed = 2
+var tiltSpeed = 4
 
 var xdir = 0; # left right 
 var zdir = 0; # forward backward
