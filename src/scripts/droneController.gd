@@ -20,14 +20,15 @@ var zdir = 0; # forward backward
 
 
 
+
 func _integrate_forces(state):
 	#state.set_angular_velocity(Vector3(0,yAcceleration,0))
-	state.transform = transform.looking_at(translation + Vector3(0,zdir,-1),Vector3(xdir,1,zdir))
+	state.transform = transform.interpolate_with(transform.looking_at(translation + Vector3(0,zdir,-1),Vector3(xdir,1,zdir)),state.step)
 	pass
 
 func _physics_process(delta):
 	#look_at(translation + Vector3(0,zdir,-1),Vector3(xdir,1,zdir))
-	var decreaseAccelerationFactor = translation.y*0.4
+	var decreaseAccelerationFactor = translation.y*0.7
 	var totalYAcceleration = (yAcceleration-decreaseAccelerationFactor)
 
 	var up = transform.basis.y
