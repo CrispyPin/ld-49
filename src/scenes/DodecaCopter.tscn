@@ -28,7 +28,7 @@ scale = 0.5
 scale_curve = SubResource( 8 )
 
 [sub_resource type="SphereShape" id=12]
-radius = 40.0
+radius = 20.0
 
 [node name="DodecaCopter" type="RigidBody"]
 gravity_scale = 0.0

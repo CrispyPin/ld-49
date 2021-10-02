@@ -10,13 +10,13 @@ const item_variants = [
 	preload("res://scenes/shelf-items/ShelfItem-1.tscn"),
 	preload("res://scenes/shelf-items/ShelfItem-2.tscn"),
 	preload("res://scenes/shelf-items/ShelfItem-3.tscn"),
-	#preload("res://scenes/DodecaCopter.tscn"),
 ]
 
 const container_variants = [
 	preload("res://scenes/containers/Container-1.tscn"),
 	preload("res://scenes/containers/Container-2.tscn"),
 	preload("res://scenes/containers/Forklift.tscn"),
+	preload("res://scenes/DodecaCopter.tscn"),
 ]
 
 export var container_chance = 0.2

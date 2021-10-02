@@ -9,9 +9,8 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	if attack:
-		linear_velocity = (target - global_transform.origin).normalized() * 1
+		linear_velocity = (target - global_transform.origin).normalized() * 8
 		if (translation - target).length() < 8:
-			linear_velocity = Vector3()
 			attack = false
 
 
