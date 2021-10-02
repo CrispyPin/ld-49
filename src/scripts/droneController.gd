@@ -60,7 +60,7 @@ func _process(delta):
 		yAcceleration+=throttleSpeed
 
 	yAcceleration = max(yAcceleration, gravity*1.05)
-	yAcceleration = min(yAcceleration, gravity*4.05)
+	#yAcceleration = min(yAcceleration, gravity*4.05)
 
 
 

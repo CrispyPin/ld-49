@@ -45,3 +45,4 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.18124, 0.737369, 0 )
 
 [node name="DodecaCopter" parent="." instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.12885, 0 )
+linear_damp = 0.3
