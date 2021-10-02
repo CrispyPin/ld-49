@@ -1,17 +1,20 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://models/pipe/pipe.glb" type="PackedScene" id=1]
 [ext_resource path="res://scripts/Creator.gd" type="Script" id=2]
 [ext_resource path="res://scripts/BoxConsumer.gd" type="Script" id=3]
 
-[sub_resource type="BoxShape" id=3]
+[sub_resource type="BoxShape" id=1]
 extents = Vector3( 1.99016, 0.888713, 1.9873 )
 
-[sub_resource type="BoxShape" id=1]
+[sub_resource type="BoxShape" id=2]
 extents = Vector3( 0.395245, 2.91227, 1.99428 )
 
-[sub_resource type="BoxShape" id=2]
+[sub_resource type="BoxShape" id=3]
 extents = Vector3( 1.994, 2.912, 0.395 )
+
+[sub_resource type="BoxShape" id=4]
+extents = Vector3( 1.345, 4.30917, 1.345 )
 
 [node name="Creator" type="Spatial"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.68274, 0 )
@@ -22,8 +25,8 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.68274, 0 )
 script = ExtResource( 3 )
 
 [node name="CollisionShape" type="CollisionShape" parent="pipeLower/BoxConsumer"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.51717, 0 )
-shape = SubResource( 3 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.588, 0 )
+shape = SubResource( 1 )
 
 [node name="PlayerBarrier" type="StaticBody" parent="pipeLower"]
 collision_layer = 2
@@ -31,25 +34,25 @@ collision_mask = 2
 
 [node name="CollisionShape" type="CollisionShape" parent="pipeLower/PlayerBarrier"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.49243, 0 )
-shape = SubResource( 3 )
+shape = SubResource( 1 )
 
 [node name="StaticBody" type="StaticBody" parent="pipeLower"]
 
 [node name="C1_2" type="CollisionShape" parent="pipeLower/StaticBody"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6, 0.075, 0 )
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
 [node name="C1_1" type="CollisionShape" parent="pipeLower/StaticBody"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.59958, 0.0754567, 0 )
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
 [node name="C2_1" type="CollisionShape" parent="pipeLower/StaticBody"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.075, -1.6 )
-shape = SubResource( 2 )
+shape = SubResource( 3 )
 
 [node name="C2_2" type="CollisionShape" parent="pipeLower/StaticBody"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.075, 1.6 )
-shape = SubResource( 2 )
+shape = SubResource( 3 )
 
 [node name="pipeUpper" parent="pipeLower" instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 14.125, 0 )
@@ -61,28 +64,37 @@ collision_mask = 2
 
 [node name="CollisionShape" type="CollisionShape" parent="pipeLower/pipeUpper/PlayerBarrier"]
 transform = Transform( 1, 0, 0, 0, 0.999999, 0, 0, 0, 0.999999, 0, 1.752, 0 )
-shape = SubResource( 3 )
+shape = SubResource( 1 )
 
 [node name="StaticBody" type="StaticBody" parent="pipeLower/pipeUpper"]
 
 [node name="C1_2" type="CollisionShape" parent="pipeLower/pipeUpper/StaticBody"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6, 0.075, 0 )
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
 [node name="C1_1" type="CollisionShape" parent="pipeLower/pipeUpper/StaticBody"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.59958, 0.0754567, 0 )
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
 [node name="C2_1" type="CollisionShape" parent="pipeLower/pipeUpper/StaticBody"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.075, -1.6 )
-shape = SubResource( 2 )
+shape = SubResource( 3 )
 
 [node name="C2_2" type="CollisionShape" parent="pipeLower/pipeUpper/StaticBody"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.075, 1.6 )
-shape = SubResource( 2 )
+shape = SubResource( 3 )
 
 [node name="spawnPoint" type="Spatial" parent="pipeLower/pipeUpper"]
 transform = Transform( 1, 0, 0, 0, 1, 1.42109e-14, 0, -1.42109e-14, 1, 0, 1.38499, -1.21079e-07 )
 script = ExtResource( 2 )
+
+[node name="CheatingArea" type="Area" parent="pipeLower"]
+space_override = 3
+linear_damp = 10.0
+angular_damp = 10.0
+
+[node name="CollisionShape" type="CollisionShape" parent="pipeLower/CheatingArea"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.00087, 0 )
+shape = SubResource( 4 )
 
 [connection signal="body_entered" from="pipeLower/BoxConsumer" to="pipeLower/BoxConsumer" method="_on_BoxConsumer_body_entered"]
