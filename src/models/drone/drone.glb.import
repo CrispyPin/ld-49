@@ -2,12 +2,12 @@
 
 importer="scene"
 type="PackedScene"
-path="res://.import/shelves-1.glb-9ddcb80a85a8fbb9d6b74ad9ece0c3a8.scn"
+path="res://.import/drone.glb-e4c3bc5b8a85eb1142e3a7e1dd8e2400.scn"
 
 [deps]
 
-source_file="res://models/shelves-1.glb"
-dest_files=[ "res://.import/shelves-1.glb-9ddcb80a85a8fbb9d6b74ad9ece0c3a8.scn" ]
+source_file="res://models/drone/drone.glb"
+dest_files=[ "res://.import/drone.glb-e4c3bc5b8a85eb1142e3a7e1dd8e2400.scn" ]
 
 [params]
 
