@@ -28,8 +28,8 @@ func _ready() -> void:
 
 func add_containers() -> void:
 	for i in range(5):
-		var posx = rand_range(-14, 14)
-		var posz = rand_range(-16, 16)
+		var posx = rand_range(-25, 25)
+		var posz = rand_range(-30, 30)
 		var roty = rand_range(-3, 3.5)
 		var type = randi() % len(container_variants)
 		var container_node = container_variants[type].instance()
@@ -41,7 +41,7 @@ func add_containers() -> void:
 
 
 func add_shelves() -> void:
-	for x in [-28, -12, 12, 28]:
+	for x in [-24, -12, 12, 24]:
 		for z in [0, 32]:
 			var type = randi() % len(shelf_variants)
 			var shelf_node = shelf_variants[type].instance()
