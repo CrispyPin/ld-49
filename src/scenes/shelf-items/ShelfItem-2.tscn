@@ -11,11 +11,12 @@ extents = Vector3( 0.6, 0.640512, 0.6 )
 [node name="ShelfItem-2" type="RigidBody"]
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.126039, 0 )
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, -0.178241, 0 )
 shape = SubResource( 1 )
 
 [node name="CollisionShape2" type="CollisionShape" parent="."]
-transform = Transform( 0.988338, 0, -0.152279, 0, 1, 0, 0.152279, 0, 0.988338, 0, 0.860638, 0 )
+transform = Transform( 1.97668, 0, -0.304558, 0, 2, 0, 0.304558, 0, 1.97668, 0, 1.29096, 0 )
 shape = SubResource( 2 )
 
 [node name="shelf-item-2" parent="." instance=ExtResource( 1 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, -0.430319, 0 )

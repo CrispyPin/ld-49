@@ -8,5 +8,4 @@ background_sky = SubResource( 1 )
 ambient_light_color = Color( 0.396078, 0.403922, 0.352941, 1 )
 tonemap_mode = 2
 ssao_enabled = true
-ssao_intensity = 5.13
 glow_intensity = 8.0

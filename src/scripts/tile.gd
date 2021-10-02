@@ -9,6 +9,7 @@ const shelf_variants = [
 const item_variants = [
 	preload("res://scenes/shelf-items/ShelfItem-1.tscn"),
 	preload("res://scenes/shelf-items/ShelfItem-2.tscn"),
+	preload("res://scenes/shelf-items/ShelfItem-3.tscn"),
 ]
 
 const container_variants = [
@@ -27,9 +28,9 @@ func _ready() -> void:
 
 
 func add_containers() -> void:
-	for i in range(5):
-		var posx = rand_range(-14, 14)
-		var posz = rand_range(-16, 16)
+	for _i in range(5):
+		var posx = rand_range(-25, 25)
+		var posz = rand_range(-30, 30)
 		var roty = rand_range(-3, 3.5)
 		var type = randi() % len(container_variants)
 		var container_node = container_variants[type].instance()
@@ -41,7 +42,7 @@ func add_containers() -> void:
 
 
 func add_shelves() -> void:
-	for x in [-28, -12, 12, 28]:
+	for x in [-24, -12, 12, 24]:
 		for z in [0, 32]:
 			var type = randi() % len(shelf_variants)
 			var shelf_node = shelf_variants[type].instance()
@@ -52,12 +53,9 @@ func add_shelves() -> void:
 
 
 func fill_shelf(shelf) -> void:
-	for z in range(4):
-		var posz = -z*8 - 4
-		for y in range(4):
-			var posy = y*4 + 4
-			var type = randi() % len(item_variants)
-			var item_node = item_variants[type].instance()
-			item_node.translation.z = posz
-			item_node.translation.y = posy
-			shelf.add_child(item_node)
+	for s in shelf.get_node("SpawnPoints").get_children():
+		var type = randi() % len(item_variants)
+		var item_node = item_variants[type].instance()
+		item_node.translation = s.translation
+		shelf.add_child(item_node)
+
