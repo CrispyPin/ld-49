@@ -2,11 +2,10 @@
 
 [ext_resource path="res://scripts/Forklift.gd" type="Script" id=1]
 [ext_resource path="res://models/forklift/forklift.glb" type="PackedScene" id=2]
+[ext_resource path="res://models/wheel.glb" type="PackedScene" id=4]
 
 [sub_resource type="BoxShape" id=1]
 extents = Vector3( 1.94101, 3.70518, 3.9014 )
-
-[sub_resource type="CubeMesh" id=2]
 
 [node name="Spatial" type="VehicleBody"]
 can_sleep = false
@@ -30,9 +29,8 @@ suspension_stiffness = 10.0
 damping_compression = 1.0
 damping_relaxation = 1.0
 
-[node name="MeshInstance" type="MeshInstance" parent="VehicleWheel"]
-mesh = SubResource( 2 )
-material/0 = null
+[node name="wheel4" parent="VehicleWheel" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, -1, -0.5, 0, 0 )
 
 [node name="VehicleWheel2" type="VehicleWheel" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.01925, 1.82143, 2.24105 )
@@ -43,9 +41,8 @@ suspension_stiffness = 10.0
 damping_compression = 1.0
 damping_relaxation = 1.0
 
-[node name="MeshInstance" type="MeshInstance" parent="VehicleWheel2"]
-mesh = SubResource( 2 )
-material/0 = null
+[node name="wheel3" parent="VehicleWheel2" instance=ExtResource( 4 )]
+transform = Transform( -1, 0, 1.50996e-07, 0, 1, 0, 1.50996e-07, 0, 1, 0.5, 0, 0 )
 
 [node name="VehicleWheel3" type="VehicleWheel" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.00697, 1.87512, -2.51927 )
@@ -56,9 +53,8 @@ suspension_stiffness = 10.0
 damping_compression = 1.0
 damping_relaxation = 1.0
 
-[node name="MeshInstance" type="MeshInstance" parent="VehicleWheel3"]
-mesh = SubResource( 2 )
-material/0 = null
+[node name="wheel2" parent="VehicleWheel3" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, -1, -0.5, 0, 0 )
 
 [node name="VehicleWheel4" type="VehicleWheel" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.00339, 1.833, -2.47764 )
@@ -69,8 +65,8 @@ suspension_stiffness = 10.0
 damping_compression = 1.0
 damping_relaxation = 1.0
 
-[node name="MeshInstance" type="MeshInstance" parent="VehicleWheel4"]
-mesh = SubResource( 2 )
-material/0 = null
+[node name="wheel" parent="VehicleWheel4" instance=ExtResource( 4 )]
+transform = Transform( -1, 0, 1.50996e-07, 0, 1, 0, 1.50996e-07, 0, 1, 0.5, 0, 0 )
 
 [editable path="forklift"]
+[editable path="VehicleWheel4/wheel"]
