@@ -33,8 +33,8 @@ func _physics_process(_delta):
 
 	var up = transform.basis.y
 
-	var xAcceleration = up.x*yAcceleration;
-	var zAcceleration = up.z*yAcceleration;
+	var xAcceleration = up.x*totalYAcceleration;
+	var zAcceleration = up.z*totalYAcceleration;
 
 	add_central_force(mass*Vector3(xAcceleration,totalYAcceleration,zAcceleration))
 	#rotation_degrees.x = yAcceleration;

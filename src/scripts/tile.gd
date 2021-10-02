@@ -47,7 +47,7 @@ func add_forklifts():
 		f.rotation.y = roty
 		add_child(f)
 
-	for i in range(100):
+	for i in range(50):
 		add_item(Vector3(rand_range(-16, 16), rand_range(2,15), rand_range(-24, 24)))
 
 
@@ -67,15 +67,23 @@ func add_containers() -> void:
 		add_child(container_node)
 
 
+func add_shelf(x: float, z: float) -> void:
+	var type = randi() % len(shelf_variants)
+	var shelf_node = shelf_variants[type].instance()
+	shelf_node.translation.x = x
+	shelf_node.translation.z = z
+	add_child(shelf_node)
+	fill_shelf(shelf_node)
+
 func add_shelves() -> void:
-	for x in [-24, -12, 12, 24]:
-		for z in [0, 32]:
-			var type = randi() % len(shelf_variants)
-			var shelf_node = shelf_variants[type].instance()
-			shelf_node.translation.x = x
-			shelf_node.translation.z = z
-			add_child(shelf_node)
-			fill_shelf(shelf_node)
+	var numShelves : int= 5
+	var spread := 6
+	for z in [0, 32]:
+		#for x in [-24, -12, 12, 24]:
+		#for x in [-30, -24, -18, -12, -6, 0, 6, 12, 18, 24, 30]:
+		for x in range(-numShelves,numShelves+1):
+			if rand_range(0,1)>0.7:
+				add_shelf(x*spread,z)
 
 
 func fill_shelf(shelf) -> void:
