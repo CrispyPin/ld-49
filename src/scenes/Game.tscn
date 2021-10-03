@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/TileManager.tscn" type="PackedScene" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://scenes/Conveyor.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scripts/Camera.gd" type="Script" id=6]
 [ext_resource path="res://scenes/Creator.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/Truck.tscn" type="PackedScene" id=8]
 [ext_resource path="res://scenes/containers/Forklift.tscn" type="PackedScene" id=9]
 [ext_resource path="res://materials/fog_box.material" type="Material" id=10]
 
@@ -56,6 +57,9 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.64508, 2.68911, 0 )
 
 [node name="Forklift" parent="." instance=ExtResource( 9 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.18124, 0.737369, 0 )
+
+[node name="Truck" parent="." instance=ExtResource( 8 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 37.3511, 2.6665, -18.1818 )
 
 [editable path="TileManager"]
 [editable path="TileManager2"]
