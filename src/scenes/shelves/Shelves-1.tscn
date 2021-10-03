@@ -5,6 +5,7 @@
 [ext_resource path="res://scenes/shelves/shelf_pillar.shape" type="Shape" id=3]
 
 [node name="Shelves-1" type="StaticBody"]
+collision_layer = 17
 
 [node name="shelves-1" parent="." instance=ExtResource( 2 )]
 
