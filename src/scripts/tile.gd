@@ -28,6 +28,7 @@ const enemy = preload("res://scenes/DodecaCopter.tscn")
 export var disable_spawning = false
 export var container_chance = 0.15
 export var forklift_chance = 0.2
+export var enemy_in_shelf_chance = 0.02
 export var container_count = 8
 
 func _ready() -> void:
@@ -35,6 +36,7 @@ func _ready() -> void:
 	if disable_spawning:
 		return
 
+	# i know this is bad shut up
 	var r = randf()
 	if r < container_chance:
 		add_containers()
@@ -74,6 +76,15 @@ func add_containers() -> void:
 		add_child(container_node)
 
 
+func add_shelves() -> void:
+	var numShelves : int= 5
+	var spread := 6
+	for z in [0, 32]:
+		for x in range(-numShelves,numShelves+1):
+			if rand_range(0,1)>0.7:
+				add_shelf(x*spread,z)
+
+
 func add_shelf(x: float, z: float) -> void:
 	var type = randi() % len(shelf_variants)
 	var shelf_node = shelf_variants[type].instance()
@@ -82,20 +93,16 @@ func add_shelf(x: float, z: float) -> void:
 	add_child(shelf_node)
 	fill_shelf(shelf_node)
 
-func add_shelves() -> void:
-	var numShelves : int= 5
-	var spread := 6
-	for z in [0, 32]:
-		#for x in [-24, -12, 12, 24]:
-		#for x in [-30, -24, -18, -12, -6, 0, 6, 12, 18, 24, 30]:
-		for x in range(-numShelves,numShelves+1):
-			if rand_range(0,1)>0.7:
-				add_shelf(x*spread,z)
-
 
 func fill_shelf(shelf) -> void:
 	for s in shelf.get_node("SpawnPoints").get_children():
-		add_item(s.translation + shelf.translation)
+		var pos = s.translation + shelf.translation
+		if randf() < enemy_in_shelf_chance:
+			var e = enemy.instance()
+			e.translation = pos
+			add_child(e)
+		else:
+			add_item(pos)
 
 
 func add_item(pos: Vector3):

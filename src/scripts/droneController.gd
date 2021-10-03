@@ -53,7 +53,7 @@ func _physics_process(_delta):
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	
+
 	var dir = Vector2( Input.get_action_strength("left")- Input.get_action_strength("right"), Input.get_action_strength("forward")- Input.get_action_strength("backward"))
 	dir=-dir.clamped(1)
 	xdir = dir.x
@@ -69,7 +69,7 @@ func _process(delta):
 	#	xdir = -1.0
 	#elif Input.is_action_pressed("right"):
 	#	xdir = 1.0
-	
+
 	ydir = Input.get_action_strength("increase_throttle")-Input.get_action_strength("decrease_throttle")
 	#if Input.is_action_pressed("decrease_throttle"):
 	#	ydir = -1.0;
