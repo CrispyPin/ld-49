@@ -3,7 +3,10 @@ extends Spatial
 
 const tile = preload("res://scenes/Tile.tscn")
 
-export var distance = 128*4
+export var wall_r = false
+export var wall_l = false
+
+export var distance = 512
 export var tile_size = 64
 export var back_distance = 64
 
@@ -15,6 +18,7 @@ var tiles
 var numTiles = 0
 
 func _ready() -> void:
+	randomize()
 	player = get_node("/root/Game/Player")
 	tiles = []
 
@@ -24,11 +28,11 @@ func _process(_delta: float) -> void:
 		add_tile()
 	if numTiles>0:
 		var firstTile = tiles[0] as Spatial
-		print("SEVERAL TILES")
+		#print("SEVERAL TILES")
 		if firstTile:
-			print("NOT NIL")
+			#print("NOT NIL")
 			if firstTile.translation.z>player.translation.z+back_distance: # player goes towards -z
-				print("DELETING A TILE")
+				#print("DELETING A TILE")
 				firstTile.queue_free()
 				numTiles-=1
 				tiles.pop_front()
@@ -44,4 +48,6 @@ func add_tile():
 	numTiles+=1
 	pos_z -= tile_size
 	new.translation.z = pos_z
+	new.wall_r = wall_r
+	new.wall_l = wall_l
 	add_child(new)

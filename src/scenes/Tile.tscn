@@ -1,7 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://materials/floor.material" type="Material" id=1]
+[ext_resource path="res://models/wall/floor.material" type="Material" id=1]
 [ext_resource path="res://scripts/tile.gd" type="Script" id=2]
+[ext_resource path="res://models/lamp/lamp.glb" type="PackedScene" id=3]
+[ext_resource path="res://models/wall/wall_support.material" type="Material" id=4]
 
 [sub_resource type="PlaneMesh" id=1]
 material = ExtResource( 1 )
@@ -9,6 +11,12 @@ size = Vector2( 64, 64 )
 
 [sub_resource type="BoxShape" id=2]
 extents = Vector3( 32, 2, 32 )
+
+[sub_resource type="CubeMesh" id=3]
+size = Vector3( 80, 2, 1 )
+
+[sub_resource type="CubeMesh" id=4]
+size = Vector3( 1.5, 1.5, 32 )
 
 [node name="Tile" type="Spatial"]
 script = ExtResource( 2 )
@@ -22,3 +30,30 @@ material/0 = null
 [node name="CollisionShape" type="CollisionShape" parent="Floor"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0 )
 shape = SubResource( 2 )
+
+[node name="SpotLight" type="SpotLight" parent="."]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 30, 0 )
+light_color = Color( 0.992157, 0.94902, 0.713726, 1 )
+light_energy = 5.0
+shadow_enabled = true
+shadow_color = Color( 0.156863, 0.156863, 0.156863, 1 )
+spot_range = 52.0
+spot_angle = 50.0
+
+[node name="lamp" parent="SpotLight" instance=ExtResource( 3 )]
+transform = Transform( -1.74846e-07, -1.74846e-07, -4, -4, -1.74846e-07, 1.74846e-07, -1.74846e-07, 4, -1.74846e-07, 0, 0, 0 )
+
+[node name="MeshInstance" type="MeshInstance" parent="SpotLight"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -8.74228e-08, 2 )
+mesh = SubResource( 3 )
+material/0 = ExtResource( 4 )
+
+[node name="MeshInstance2" type="MeshInstance" parent="SpotLight"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 0, 18 )
+mesh = SubResource( 4 )
+material/0 = ExtResource( 4 )
+
+[node name="MeshInstance3" type="MeshInstance" parent="SpotLight"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 0, 18 )
+mesh = SubResource( 4 )
+material/0 = ExtResource( 4 )

@@ -13,6 +13,8 @@ func _ready():
 	if freecam:
 		vel = Vector3(0,1,0)
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	else:
+		$Fogbox.visible = true
 
 
 func _process(delta):
