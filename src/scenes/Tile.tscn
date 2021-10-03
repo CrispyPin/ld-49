@@ -1,9 +1,11 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://models/wall/floor.material" type="Material" id=1]
 [ext_resource path="res://scripts/tile.gd" type="Script" id=2]
 [ext_resource path="res://models/lamp/lamp.glb" type="PackedScene" id=3]
 [ext_resource path="res://models/wall/wall_support.material" type="Material" id=4]
+[ext_resource path="res://models/net.glb" type="PackedScene" id=5]
+[ext_resource path="res://materials/net.material" type="Material" id=6]
 
 [sub_resource type="PlaneMesh" id=1]
 material = ExtResource( 1 )
@@ -29,6 +31,10 @@ material/0 = null
 
 [node name="CollisionShape" type="CollisionShape" parent="Floor"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0 )
+shape = SubResource( 2 )
+
+[node name="CollisionShape2" type="CollisionShape" parent="Floor"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 28, 0 )
 shape = SubResource( 2 )
 
 [node name="SpotLight" type="SpotLight" parent="."]
@@ -57,3 +63,11 @@ material/0 = ExtResource( 4 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 0, 18 )
 mesh = SubResource( 4 )
 material/0 = ExtResource( 4 )
+
+[node name="net" parent="." instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 32, 32 )
+
+[node name="net" parent="net" index="0"]
+material/0 = ExtResource( 6 )
+
+[editable path="net"]
