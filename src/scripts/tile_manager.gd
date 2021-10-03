@@ -17,6 +17,9 @@ var pos_z = 0
 var tiles
 var numTiles = 0
 
+
+#Global.
+
 func _ready() -> void:
 	randomize()
 	player = get_node("/root/Game/Player")
@@ -44,6 +47,16 @@ func _process(_delta: float) -> void:
 
 func add_tile():
 	var new = tile.instance()
+	Global.tileMutex.lock()
+	Global.tilesUntilCreator-=1
+	if Global.tilesUntilCreator <= 0:
+		Global.tilesUntilCreator=Global.initTilesUntilCreator
+		new.isCreator = true
+	Global.tilesUntilTruck-=1
+	if Global.tilesUntilTruck <= 0:
+		Global.tilesUntilTruck=Global.initTilesUntilTruck
+		new.isTruck = true
+	Global.tileMutex.unlock()
 	tiles.append(new as Spatial)
 	numTiles+=1
 	pos_z -= tile_size

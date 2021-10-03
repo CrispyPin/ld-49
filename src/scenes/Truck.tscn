@@ -14,6 +14,7 @@ extents = Vector3( 23.7314, 3.70564, 6.72367 )
 extents = Vector3( 1.97748, 0.56653, 8.24696 )
 
 [node name="Truck" type="VehicleBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.04345, 0 )
 
 [node name="truck" parent="." instance=ExtResource( 1 )]
 
