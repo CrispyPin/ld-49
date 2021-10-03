@@ -19,6 +19,8 @@ const container_variants = [
 	preload("res://scenes/containers/Forklift.tscn"),
 ]
 
+const shork_item = preload("res://scenes/shelf-items/ShelfItem-Shork.tscn")
+
 const forklift = preload("res://scenes/containers/Forklift.tscn")
 
 const enemy = preload("res://scenes/DodecaCopter.tscn")
@@ -95,6 +97,8 @@ func fill_shelf(shelf) -> void:
 func add_item(pos: Vector3):
 	var type = randi() % len(item_variants)
 	var item = item_variants[type].instance()
+	if randf() < 0.01:
+		item = shork_item.instance()
 	item.translation = pos
 	add_child(item)
 

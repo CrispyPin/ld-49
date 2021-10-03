@@ -1,30 +1,15 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://models/shark/shark.glb" type="PackedScene" id=1]
+[ext_resource path="res://models/shelf-items/shelf-item-3.glb" type="PackedScene" id=1]
 
-[sub_resource type="CapsuleShape" id=1]
-radius = 0.91847
-height = 5.02404
+[sub_resource type="BoxShape" id=1]
+extents = Vector3( 1.7, 1.7, 1.7 )
 
-[sub_resource type="BoxShape" id=2]
-extents = Vector3( 0.682388, 0.162, 0.506 )
-
-[node name="Shark" type="RigidBody"]
-continuous_cd = true
-
-[node name="shark" parent="." instance=ExtResource( 1 )]
-transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.806759, 0 )
+[node name="ShelfItem-3" type="RigidBody"]
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
-transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.806759, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.73945, 0 )
 shape = SubResource( 1 )
 
-[node name="CollisionShape3" type="CollisionShape" parent="."]
-transform = Transform( 0.353553, -0.353553, 0, 0.353553, 0.353553, 0, 0, 0, 0.5, -0.712729, 0.248879, -0.095 )
-shape = SubResource( 2 )
-disabled = true
-
-[node name="CollisionShape4" type="CollisionShape" parent="."]
-transform = Transform( 0.353553, 0.353553, 0, -0.353553, 0.353553, 0, 0, 0, 0.5, 0.713, 0.249, -0.095 )
-shape = SubResource( 2 )
-disabled = true
+[node name="shelf-item-3" parent="." instance=ExtResource( 1 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0 )
