@@ -23,6 +23,7 @@ far = 1000.0
 script = ExtResource( 6 )
 
 [node name="Fogbox" type="MeshInstance" parent="Camera"]
+visible = false
 mesh = SubResource( 1 )
 material/0 = null
 
