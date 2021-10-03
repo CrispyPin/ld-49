@@ -7,4 +7,4 @@
 script = ExtResource( 2 )
 
 [node name="Tile" parent="." instance=ExtResource( 1 )]
-container_chance = 0.0
+disable_spawning = true
