@@ -3,6 +3,9 @@ extends Spatial
 
 const tile = preload("res://scenes/Tile.tscn")
 
+export var wall_r = false
+export var wall_l = false
+
 export var distance = 128
 export var tile_size = 64
 export var back_distance = 64
@@ -15,6 +18,7 @@ var tiles
 var numTiles = 0
 
 func _ready() -> void:
+	randomize()
 	player = get_node("/root/Game/Player")
 	tiles = []
 
@@ -34,14 +38,12 @@ func _process(_delta: float) -> void:
 				tiles.pop_front()
 
 
-
-
-
-
 func add_tile():
 	var new = tile.instance()
 	tiles.append(new as Spatial)
 	numTiles+=1
 	pos_z -= tile_size
 	new.translation.z = pos_z
+	new.wall_r = wall_r
+	new.wall_l = wall_l
 	add_child(new)

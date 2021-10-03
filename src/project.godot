@@ -19,6 +19,11 @@ config/icon="res://icon.png"
 Global="*res://scripts/ui/global.gd"
 UI="*res://scenes/ui/UI.tscn"
 
+[debug]
+
+gdscript/warnings/unused_variable=false
+gdscript/warnings/unused_argument=false
+
 [editor]
 
 convert_text_resources_to_binary_on_export=true
