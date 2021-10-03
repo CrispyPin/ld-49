@@ -48,4 +48,4 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -7.87115, 0 )
 linear_damp = 0.3
 
 [node name="Truck" parent="." instance=ExtResource( 10 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -20.4014, 3.99027, 0 )
+transform = Transform( 0.522126, 0, -0.852868, 0, 1, 0, 0.852868, 0, 0.522126, -20.4014, 3.99027, -9.05761 )
