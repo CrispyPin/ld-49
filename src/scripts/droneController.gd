@@ -64,7 +64,7 @@ func _process(delta):
 		xdir = -1.0
 	elif Input.is_action_pressed("right"):
 		xdir = 1.0
-	
+
 	ydir = 0
 	if Input.is_action_pressed("decrease_throttle"):
 		ydir = -1.0;

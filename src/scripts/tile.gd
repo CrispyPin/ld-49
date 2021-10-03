@@ -25,12 +25,16 @@ const forklift = preload("res://scenes/containers/Forklift.tscn")
 
 const enemy = preload("res://scenes/DodecaCopter.tscn")
 
+export var disable_spawning = false
 export var container_chance = 0.15
 export var forklift_chance = 0.2
 export var container_count = 8
 
 func _ready() -> void:
 	randomize()
+	if disable_spawning:
+		return
+
 	var r = randf()
 	if r < container_chance:
 		add_containers()
