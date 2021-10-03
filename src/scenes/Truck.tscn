@@ -7,14 +7,14 @@
 [sub_resource type="BoxShape" id=1]
 extents = Vector3( 4.07273, 1.47095, 19.9995 )
 
-[sub_resource type="BoxShape" id=4]
+[sub_resource type="BoxShape" id=2]
 extents = Vector3( 23.7314, 3.70564, 6.72367 )
 
 [sub_resource type="BoxShape" id=3]
 extents = Vector3( 1.97748, 0.56653, 8.24696 )
 
 [node name="Truck" type="VehicleBody"]
-collision_layer = 17
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.04345, 0 )
 
 [node name="truck" parent="." instance=ExtResource( 1 )]
 
@@ -118,7 +118,7 @@ script = ExtResource( 3 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Deleter"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.012929, 1.42295 )
-shape = SubResource( 4 )
+shape = SubResource( 2 )
 
 [node name="conveyor" type="StaticBody" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.59177, -34.4006 )

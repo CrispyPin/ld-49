@@ -27,6 +27,12 @@ const enemy = preload("res://scenes/DodecaCopter.tscn")
 
 const wall = preload("res://scenes/Wall.tscn")
 
+const creator = preload("res://scenes/Creator.tscn")
+const truck = preload("res://scenes/Truck.tscn")
+
+var isTruck : bool = false
+var isCreator : bool = false
+
 export var disable_spawning = false
 export var container_chance = 0.15
 export var forklift_chance = 0.2
@@ -48,8 +54,14 @@ func _ready() -> void:
 		add_child(w)
 	if disable_spawning:
 		return
+	if isCreator:
+		add_child(creator.instance())
+		return
+	if isTruck:
+		add_child(truck.instance())
+		return
 
-	# i know this is bad shut up
+
 	var r = randf()
 	if r < container_chance:
 		add_containers()
