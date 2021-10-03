@@ -109,6 +109,8 @@ func add_shelf(x: float, z: float) -> void:
 
 func fill_shelf(shelf) -> void:
 	for s in shelf.get_node("SpawnPoints").get_children():
+		if randf() < 0.4:
+			continue
 		var pos = s.translation + shelf.translation
 		if randf() < enemy_in_shelf_chance:
 			var e = enemy.instance()

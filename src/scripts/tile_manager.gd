@@ -6,7 +6,7 @@ const tile = preload("res://scenes/Tile.tscn")
 export var wall_r = false
 export var wall_l = false
 
-export var distance = 512
+export var distance = 350
 export var tile_size = 64
 export var back_distance = 64
 
