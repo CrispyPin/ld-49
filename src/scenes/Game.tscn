@@ -16,7 +16,6 @@
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.94073, 10.017 )
 far = 1000.0
 script = ExtResource( 6 )
-freecam = false
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 
@@ -44,5 +43,5 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.64508, 2.68911, 0 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.18124, 0.737369, 0 )
 
 [node name="DodecaCopter" parent="." instance=ExtResource( 8 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.12885, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -7.87115, 0 )
 linear_damp = 0.3
