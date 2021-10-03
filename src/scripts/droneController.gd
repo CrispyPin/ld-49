@@ -14,7 +14,7 @@ var throttleSpeed = 0.2*60
 var ySpeedDamping = 0.05
 var directYcontrolFactor = 5
 
-var maxLateralSpeed = 50
+var maxLateralSpeed = 50*2
 
 func _ready():
 
@@ -34,8 +34,10 @@ var yMotorDir = 1
 
 func _integrate_forces(state):
 	#state.set_angular_velocity(Vector3(0,yAcceleration,0))
-	var xdirReduced = clamp(yMotorDir*xdir-(linear_velocity.x/maxLateralSpeed)*yMotorDir, -1, 1)
-	var zdirReduced = clamp(yMotorDir*zdir-(linear_velocity.z/maxLateralSpeed)*yMotorDir, -1, 1)
+	var heightSlowDownFactor = max(0,translation.y-4)*3
+	var adjustedMaxSpeed = max(maxLateralSpeed-heightSlowDownFactor,maxLateralSpeed*0.3)
+	var xdirReduced = clamp(yMotorDir*xdir-(linear_velocity.x/adjustedMaxSpeed)*yMotorDir, -1, 1)
+	var zdirReduced = clamp(yMotorDir*zdir-(linear_velocity.z/adjustedMaxSpeed)*yMotorDir, -1, 1)
 
 
 	if flipped:
