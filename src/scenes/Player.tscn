@@ -59,7 +59,6 @@ script = ExtResource( 3 )
 
 [node name="Particles" type="Particles" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00836658, -0.326378, -0.013586 )
-visible = false
 material_override = ExtResource( 6 )
 cast_shadow = 0
 generate_lightmap = false
