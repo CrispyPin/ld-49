@@ -6,6 +6,8 @@ var tilesUntilTruck : int = initTilesUntilTruck/2
 var tilesUntilCreator := 0
 var tileMutex := Mutex.new()
 
+var playerDeleteMargin : float= 8
+
 const PAUSE_IN_MENU  = true
 const CAPTURE_CURSOR = false
 

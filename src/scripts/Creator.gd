@@ -5,6 +5,7 @@ extends Spatial
 # var a = 2
 # var b = "text"
 onready var box = load('res://scenes/ValuedBox.tscn')
+onready var consumer = get_node("/root/Game/ChildConsumer")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -19,4 +20,6 @@ func _process(delta):
 	if timer>timePerBox:
 		timer=0
 		var boxInstance = box.instance()
-		add_child(boxInstance)
+		consumer.add_child(boxInstance)
+		boxInstance.global_transform.origin = global_transform.origin
+
