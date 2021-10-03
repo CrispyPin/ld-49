@@ -15,7 +15,6 @@ func _ready():
 
 	pass # Replace with function body.
 
-
 var tiltSpeed = 2
 
 var xdir = 0; # left right
@@ -60,6 +59,7 @@ func _process(delta):
 		yAcceleration+=throttleSpeed
 
 	yAcceleration = max(yAcceleration, gravity*1.05)
+	$drone.rot_speed = (yAcceleration/gravity)*15
 	#yAcceleration = min(yAcceleration, gravity*4.05)
 
 
