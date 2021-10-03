@@ -3,7 +3,7 @@ extends Spatial
 
 const tile = preload("res://scenes/Tile.tscn")
 
-export var distance = 128
+export var distance = 128*4
 export var tile_size = 64
 export var back_distance = 64
 

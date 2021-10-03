@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/TileManager.tscn" type="PackedScene" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://scenes/Creator.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scenes/DodecaCopter.tscn" type="PackedScene" id=8]
 [ext_resource path="res://scenes/containers/Forklift.tscn" type="PackedScene" id=9]
+[ext_resource path="res://scenes/Truck.tscn" type="PackedScene" id=10]
 
 [node name="Game" type="Node"]
 
@@ -45,3 +46,6 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.18124, 0.737369, 0 )
 [node name="DodecaCopter" parent="." instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -7.87115, 0 )
 linear_damp = 0.3
+
+[node name="Truck" parent="." instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -20.4014, 3.99027, 0 )
