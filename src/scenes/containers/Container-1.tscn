@@ -6,6 +6,7 @@
 extents = Vector3( 4, 5, 12 )
 
 [node name="Container-1" type="RigidBody"]
+collision_layer = 17
 mass = 100.0
 
 [node name="container-1" parent="." instance=ExtResource( 1 )]

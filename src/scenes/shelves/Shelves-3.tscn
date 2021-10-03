@@ -15,6 +15,7 @@ extents = Vector3( 2.2, 0.18, 12 )
 extents = Vector3( 0.3, 6, 0.3 )
 
 [node name="Shelves-3" type="StaticBody"]
+collision_layer = 17
 
 [node name="shelves-3" parent="." instance=ExtResource( 2 )]
 
