@@ -16,7 +16,6 @@
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.94073, 10.017 )
 far = 1000.0
 script = ExtResource( 6 )
-freecam = false
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 
