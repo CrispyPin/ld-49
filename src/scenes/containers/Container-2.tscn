@@ -13,6 +13,7 @@ height = 12.0
 extents = Vector3( 4, 2, 2 )
 
 [node name="Container-2" type="RigidBody"]
+mass = 100.0
 
 [node name="container-2" parent="." instance=ExtResource( 1 )]
 
