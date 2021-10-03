@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://scenes/shelves/shelf.shape" type="Shape" id=1]
 [ext_resource path="res://models/shelves/shelves-2.glb" type="PackedScene" id=2]
@@ -7,6 +7,9 @@
 
 [sub_resource type="BoxShape" id=1]
 extents = Vector3( 2.2, 0.442601, 4 )
+
+[sub_resource type="BoxShape" id=2]
+extents = Vector3( 2.02189, 1, 16.2143 )
 
 [node name="Shelves-2" type="StaticBody"]
 collision_layer = 17
@@ -120,3 +123,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7, -28 )
 
 [node name="Spatial11" type="Spatial" parent="SpawnPoints"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, -28 )
+
+[node name="NO CHEATING" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.99866, -16.0341 )
+shape = SubResource( 2 )
