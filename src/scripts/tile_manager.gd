@@ -6,7 +6,7 @@ const tile = preload("res://scenes/Tile.tscn")
 export var wall_r = false
 export var wall_l = false
 
-export var distance = 128
+export var distance = 512
 export var tile_size = 64
 export var back_distance = 64
 
@@ -28,11 +28,11 @@ func _process(_delta: float) -> void:
 		add_tile()
 	if numTiles>0:
 		var firstTile = tiles[0] as Spatial
-		print("SEVERAL TILES")
+		#print("SEVERAL TILES")
 		if firstTile:
-			print("NOT NIL")
+			#print("NOT NIL")
 			if firstTile.translation.z>player.translation.z+back_distance: # player goes towards -z
-				print("DELETING A TILE")
+				#print("DELETING A TILE")
 				firstTile.queue_free()
 				numTiles-=1
 				tiles.pop_front()
