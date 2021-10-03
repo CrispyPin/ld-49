@@ -13,7 +13,7 @@ extents = Vector3( 2.00475, 0.218294, 1.48794 )
 [sub_resource type="BoxShape" id=3]
 extents = Vector3( 1.42484, 3.30733, 0.493752 )
 
-[node name="Spatial" type="VehicleBody"]
+[node name="Forklift" type="VehicleBody"]
 can_sleep = false
 axis_lock_angular_x = true
 axis_lock_angular_z = true

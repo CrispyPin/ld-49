@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://models/pipe/pipe.glb" type="PackedScene" id=1]
 [ext_resource path="res://scripts/Creator.gd" type="Script" id=2]
@@ -15,6 +15,9 @@ extents = Vector3( 1.994, 2.912, 0.395 )
 
 [sub_resource type="BoxShape" id=4]
 extents = Vector3( 1.345, 4.30917, 1.345 )
+
+[sub_resource type="BoxShape" id=5]
+extents = Vector3( 2, 10, 2 )
 
 [node name="Creator" type="Spatial"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.68274, 0 )
@@ -96,5 +99,13 @@ angular_damp = 1.0
 [node name="CollisionShape" type="CollisionShape" parent="pipeLower/CheatingArea"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.00087, 0 )
 shape = SubResource( 4 )
+
+[node name="EnemyPreventer" type="StaticBody" parent="."]
+collision_layer = 8
+collision_mask = 8
+
+[node name="CollisionShape" type="CollisionShape" parent="EnemyPreventer"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7, 0 )
+shape = SubResource( 5 )
 
 [connection signal="body_entered" from="pipeLower/BoxConsumer" to="pipeLower/BoxConsumer" method="_on_BoxConsumer_body_entered"]
