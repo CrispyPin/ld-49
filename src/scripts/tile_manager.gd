@@ -34,8 +34,8 @@ func _process(_delta: float) -> void:
 				tiles.pop_front()
 
 
-		
-	
+
+
 
 
 func add_tile():

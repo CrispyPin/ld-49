@@ -1,7 +1,7 @@
 extends Camera
 
 
-export var freecam = true
+export var freecam = false
 export var speed = 10
 export var sensitivity_h = 1.0
 export var sensitivity_v = 1.0

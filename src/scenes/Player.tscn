@@ -1,9 +1,11 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://scripts/droneController.gd" type="Script" id=1]
 [ext_resource path="res://models/drone/drone.glb" type="PackedScene" id=2]
 [ext_resource path="res://scripts/drone_prop.gd" type="Script" id=3]
 [ext_resource path="res://models/smoke.mesh" type="ArrayMesh" id=4]
+[ext_resource path="res://materials/smoke_particles.material" type="Material" id=5]
+[ext_resource path="res://materials/smoke.material" type="Material" id=6]
 
 [sub_resource type="PhysicsMaterial" id=1]
 
@@ -14,7 +16,7 @@ extents = Vector3( 3.02362, 0.332249, 3.6763 )
 extents = Vector3( 0.619678, 1.09301, 1.58557 )
 
 [sub_resource type="BoxShape" id=4]
-extents = Vector3( 3.02362, 0.332249, 3.6763 )
+extents = Vector3( 1.61378, 1.05407, 0.42135 )
 
 [node name="Player" type="RigidBody" groups=[
 "player",
@@ -57,6 +59,7 @@ script = ExtResource( 3 )
 
 [node name="Particles" type="Particles" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00836658, -0.326378, -0.013586 )
+material_override = ExtResource( 6 )
 cast_shadow = 0
 generate_lightmap = false
 amount = 10
@@ -64,6 +67,7 @@ lifetime = 0.5
 randomness = 1.0
 local_coords = false
 draw_order = 2
+process_material = ExtResource( 5 )
 draw_pass_1 = ExtResource( 4 )
 
 [editable path="drone"]
