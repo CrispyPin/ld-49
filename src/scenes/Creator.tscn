@@ -90,8 +90,8 @@ script = ExtResource( 2 )
 
 [node name="CheatingArea" type="Area" parent="pipeLower"]
 space_override = 3
-linear_damp = 10.0
-angular_damp = 10.0
+linear_damp = 1.0
+angular_damp = 1.0
 
 [node name="CollisionShape" type="CollisionShape" parent="pipeLower/CheatingArea"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.00087, 0 )

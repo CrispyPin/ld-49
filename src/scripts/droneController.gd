@@ -28,24 +28,42 @@ var zdir = 0; # forward backward
 
 var ydir = 0; # up down
 
+var flipped = false
+
+var yMotorDir = 1
+
 func _integrate_forces(state):
 	#state.set_angular_velocity(Vector3(0,yAcceleration,0))
-	var xdirReduced = xdir-(linear_velocity.x/maxLateralSpeed)
-	var zdirReduced = zdir-(linear_velocity.z/maxLateralSpeed)
-	state.transform = transform.interpolate_with(transform.looking_at(translation + Vector3(0,zdirReduced,-1),Vector3(xdirReduced,1,zdirReduced)),state.step*tiltSpeed)
-	pass
+	var xdirReduced = clamp(yMotorDir*xdir-(linear_velocity.x/maxLateralSpeed)*yMotorDir, -1, 1)
+	var zdirReduced = clamp(yMotorDir*zdir-(linear_velocity.z/maxLateralSpeed)*yMotorDir, -1, 1)
+
+
+	if flipped:
+		state.transform = transform.interpolate_with(transform.looking_at(translation + Vector3(0,-zdirReduced,-1),Vector3(xdirReduced,-1,zdirReduced)),state.step*tiltSpeed)
+	else:
+		state.transform = transform.interpolate_with(transform.looking_at(translation + Vector3(0,zdirReduced,-1),Vector3(xdirReduced,1,zdirReduced)),state.step*tiltSpeed)
 
 func _physics_process(_delta):
+	var up = transform.basis.y
+	var yDotProduct	= up.dot(Vector3(0,1,0))
+	if yDotProduct > 0:
+		yMotorDir = 1
+	else:
+		yMotorDir = -1
+
+
 	#look_at(translation + Vector3(0,zdir,-1),Vector3(xdir,1,zdir))
 	var decreaseAccelerationFactor = translation.y*0.7
 	var totalYAcceleration = (yAcceleration-decreaseAccelerationFactor)
 	totalYAcceleration -= pow(linear_velocity.y,3)*ySpeedDamping
 	totalYAcceleration += ydir*directYcontrolFactor
 
-	var up = transform.basis.y
+	if abs(yDotProduct)<0.7:
+		totalYAcceleration = 0
 
-	var xAcceleration = up.x*totalYAcceleration;
-	var zAcceleration = up.z*totalYAcceleration;
+
+	var xAcceleration = up.x*totalYAcceleration*yMotorDir;
+	var zAcceleration = up.z*totalYAcceleration*yMotorDir;
 
 	add_central_force(mass*Vector3(xAcceleration,totalYAcceleration,zAcceleration))
 	#rotation_degrees.x = yAcceleration;
@@ -81,6 +99,9 @@ func _process(delta):
 
 	yAcceleration = max(yAcceleration, gravity*1.05)
 	$drone.rot_speed = (yAcceleration/gravity)*15
+
+	if Input.is_action_just_pressed("flip"):
+		flipped = !flipped
 	#yAcceleration = min(yAcceleration, gravity*4.05)
 
 
