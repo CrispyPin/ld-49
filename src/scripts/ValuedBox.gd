@@ -10,7 +10,7 @@ const package_models = [
 var type: int
 
 func _ready() -> void:
-	$MeshInstance.queue_free()
+	$placeholder.queue_free()
 	type = randi() % len(package_models)
 	var model = package_models[type].instance()
 	add_child(model)
