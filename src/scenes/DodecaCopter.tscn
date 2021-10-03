@@ -1,11 +1,8 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://models/dodecacopter/dodecacopter.glb" type="PackedScene" id=1]
 [ext_resource path="res://scripts/dodecacopter_prop.gd" type="Script" id=2]
-[ext_resource path="res://models/smoke.mesh" type="ArrayMesh" id=3]
 [ext_resource path="res://scripts/dodeca_copter.gd" type="Script" id=4]
-[ext_resource path="res://materials/smoke_particles.material" type="Material" id=5]
-[ext_resource path="res://materials/smoke.material" type="Material" id=6]
 
 [sub_resource type="SphereShape" id=1]
 
@@ -13,6 +10,8 @@
 radius = 20.0
 
 [node name="DodecaCopter" type="RigidBody"]
+collision_layer = 13
+collision_mask = 13
 gravity_scale = 0.0
 script = ExtResource( 4 )
 
@@ -23,18 +22,6 @@ rot_speed = 24
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
 shape = SubResource( 1 )
-
-[node name="Particles" type="Particles" parent="."]
-material_override = ExtResource( 6 )
-cast_shadow = 0
-generate_lightmap = false
-amount = 10
-lifetime = 0.5
-randomness = 1.0
-local_coords = false
-draw_order = 2
-process_material = ExtResource( 5 )
-draw_pass_1 = ExtResource( 3 )
 
 [node name="Area" type="Area" parent="."]
 
