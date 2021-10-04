@@ -11,6 +11,8 @@ var start_pos: Vector3
 var settled := false
 var time: float
 
+onready var player:Spatial = get_node("/root/Game/Player")
+
 func _ready() -> void:
 	time = 0
 
@@ -23,7 +25,8 @@ func _process(delta: float) -> void:
 
 	if settled:
 		var moved = translation - start_pos
-		if moved.length() > max_dist:
+		var pdist = (global_transform.origin - player.translation).length()
+		if moved.length() > max_dist and pdist > 40:
 			explode()
 
 func explode() -> void:
