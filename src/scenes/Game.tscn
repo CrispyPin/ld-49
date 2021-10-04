@@ -25,7 +25,7 @@ wall_r = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 64, 0, 0 )
 wall_l = true
 
-[node name="WallDoor" parent="TileManager2/Tile" index="4" instance=ExtResource( 4 )]
+[node name="WallDoor" parent="TileManager2/Tile" index="2" instance=ExtResource( 4 )]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource( 3 )
