@@ -8,6 +8,8 @@ var tileMutex := Mutex.new()
 
 var playerDeleteMargin : float= 8
 
+var enable_tutorial := false
+
 var scoreTimer = 0.0
 var enableScoreTimer = false
 

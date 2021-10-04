@@ -69,7 +69,22 @@ margin_bottom = 69.0
 margin_right = 1008.0
 text = "Play"
 
+[node name="Tutorial" parent="PanelContainer/VSplitContainer/MarginContainer/VBoxContainer" instance=ExtResource( 3 )]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 0.0
+margin_top = 73.0
+margin_right = 1012.0
+margin_bottom = 142.0
+
+[node name="Button" parent="PanelContainer/VSplitContainer/MarginContainer/VBoxContainer/Tutorial" index="0"]
+margin_right = 1008.0
+text = "Tutorial"
+
 [node name="Settings" parent="PanelContainer/VSplitContainer/MarginContainer/VBoxContainer" instance=ExtResource( 3 )]
+visible = false
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -112,11 +127,13 @@ margin_right = 1008.0
 text = "Exit"
 
 [connection signal="pressed" from="PanelContainer/VSplitContainer/MarginContainer/VBoxContainer/Play/Button" to="." method="_on_PlayButton_pressed"]
+[connection signal="pressed" from="PanelContainer/VSplitContainer/MarginContainer/VBoxContainer/Tutorial/Button" to="." method="_on_TutorialButton_pressed"]
 [connection signal="pressed" from="PanelContainer/VSplitContainer/MarginContainer/VBoxContainer/Settings/Button" to="." method="_on_SettingsButton_pressed"]
 [connection signal="pressed" from="PanelContainer/VSplitContainer/MarginContainer/VBoxContainer/Info/Button" to="." method="_on_InfoButton_pressed"]
 [connection signal="pressed" from="PanelContainer/VSplitContainer/MarginContainer/VBoxContainer/Exit/Button" to="." method="_on_ExitButton_pressed"]
 
 [editable path="PanelContainer/VSplitContainer/MarginContainer/VBoxContainer/Play"]
+[editable path="PanelContainer/VSplitContainer/MarginContainer/VBoxContainer/Tutorial"]
 [editable path="PanelContainer/VSplitContainer/MarginContainer/VBoxContainer/Settings"]
 [editable path="PanelContainer/VSplitContainer/MarginContainer/VBoxContainer/Info"]
 [editable path="PanelContainer/VSplitContainer/MarginContainer/VBoxContainer/Exit"]
