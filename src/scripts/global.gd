@@ -1,8 +1,8 @@
 extends Node
-
-var initTilesUntilTruck := 20
-var initTilesUntilCreator := 20
-var tilesUntilTruck : int = initTilesUntilTruck/2
+var initTiles = 40
+var initTilesUntilTruck : int= initTiles
+var initTilesUntilCreator : int= initTiles
+var tilesUntilTruck : int = int(initTilesUntilTruck*0.8)
 var tilesUntilCreator := 0
 var tileMutex := Mutex.new()
 
