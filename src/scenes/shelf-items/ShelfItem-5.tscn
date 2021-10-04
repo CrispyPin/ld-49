@@ -6,6 +6,7 @@
 radius = 2.0
 
 [node name="ShelfItem-5" type="RigidBody"]
+mass = 0.01
 
 [node name="shelf-item-5" parent="." instance=ExtResource( 1 )]
 transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0 )

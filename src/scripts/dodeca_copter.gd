@@ -8,7 +8,7 @@ var maxSpeed = 20
 var forceFactor = 5
 var playerSpeedFactor: float = 0.003*forceFactor
 var t = -1
-export var lifetime = 20
+export var lifetime = 5
 
 func _physics_process(delta: float) -> void:
 	var distToPlayer = player.global_transform.origin.distance_to(global_transform.origin)
