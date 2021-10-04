@@ -26,13 +26,22 @@ var flipped = false
 
 var yMotorDir = 1
 
+var maxTilt := 2.0
+
+var extraLateralAccelerationFactor := 2#1.5
+
 func _integrate_forces(state):
 	#state.set_angular_velocity(Vector3(0,yAcceleration,0))
 	var heightSlowDownFactor = max(0,translation.y-4)*3
 	var adjustedMaxSpeed = max(maxLateralSpeed-heightSlowDownFactor,maxLateralSpeed*0.3)
-	var xdirReduced = clamp(yMotorDir*xdir-(linear_velocity.x/adjustedMaxSpeed)*yMotorDir, -1, 1)
-	var zdirReduced = clamp(yMotorDir*zdir-(linear_velocity.z/adjustedMaxSpeed)*yMotorDir, -1, 1)
+	var xzdir : Vector2 = (yMotorDir*(
+		Vector2(xdir, zdir) - Vector2(linear_velocity.x, linear_velocity.z)/(adjustedMaxSpeed/extraLateralAccelerationFactor)
+		)).clamped(maxTilt)
+		#var xdirReduced = clamp(yMotorDir*xdir-(linear_velocity.x/adjustedMaxSpeed)*yMotorDir, -1, 1)
+		#var zdirReduced = clamp(yMotorDir*zdir-(linear_velocity.z/adjustedMaxSpeed)*yMotorDir, -1, 1)
 
+	var xdirReduced = xzdir.x
+	var zdirReduced = xzdir.y
 
 	if flipped:
 		state.transform = transform.interpolate_with(transform.looking_at(translation + Vector3(0,-zdirReduced,-1),Vector3(xdirReduced,-1,zdirReduced)),state.step*tiltSpeed)
@@ -54,7 +63,7 @@ func _physics_process(_delta):
 	totalYAcceleration -= pow(linear_velocity.y,3)*ySpeedDamping
 	totalYAcceleration += ydir*directYcontrolFactor
 
-	if abs(yDotProduct)<0.7:
+	if abs(yDotProduct)<((1.0/maxTilt)/sqrt(maxTilt*maxTilt+1.0)):
 		totalYAcceleration = 0
 
 
@@ -70,6 +79,7 @@ func _process(delta):
 
 	var dir = Vector2( Input.get_action_strength("left")- Input.get_action_strength("right"), Input.get_action_strength("forward")- Input.get_action_strength("backward"))
 	dir=-dir.clamped(1)
+	dir*=extraLateralAccelerationFactor
 	xdir = dir.x
 	zdir = dir.y
 	#zdir = 0
