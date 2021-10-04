@@ -46,7 +46,7 @@ export var wall_r: bool
 export var wall_l: bool
 
 func _ready() -> void:
-	enemy_chance = enemy_chance_per_distance * -get_parent().pos_z * 0.01
+	enemy_chance = 0.02#enemy_chance_per_distance * -get_parent().pos_z * 0.01
 	if wall_r:
 		var w
 		if isTruck:
