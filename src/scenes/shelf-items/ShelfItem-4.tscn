@@ -10,6 +10,7 @@ height = 3.6
 [node name="ShelfItem-4" type="RigidBody"]
 script = ExtResource( 2 )
 power = 50
+explosion_scale = 2
 wait_time = 2
 
 [node name="CollisionShape" type="CollisionShape" parent="."]

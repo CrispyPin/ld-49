@@ -17,19 +17,19 @@ __meta__ = {
 [node name="PanelContainer" type="PanelContainer" parent="."]
 margin_left = 4.0
 margin_top = 4.0
-margin_right = 347.0
-margin_bottom = 119.0
+margin_right = 365.0
+margin_bottom = 74.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Label" type="Label" parent="PanelContainer"]
 margin_left = 6.0
 margin_top = 6.0
-margin_right = 337.0
-margin_bottom = 109.0
+margin_right = 355.0
+margin_bottom = 64.0
 size_flags_horizontal = 3
 size_flags_vertical = 7
-text = "Warehouse 49"
+text = "Shork Incorporated"
 align = 1
 valign = 1
 __meta__ = {

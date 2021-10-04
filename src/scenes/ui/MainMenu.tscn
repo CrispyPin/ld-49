@@ -95,7 +95,7 @@ margin_bottom = 215.0
 
 [node name="Button" parent="PanelContainer/VSplitContainer/MarginContainer/VBoxContainer/Info" index="0"]
 margin_right = 1008.0
-text = "About"
+text = "Credits"
 
 [node name="Exit" parent="PanelContainer/VSplitContainer/MarginContainer/VBoxContainer" instance=ExtResource( 3 )]
 anchor_left = 0.0

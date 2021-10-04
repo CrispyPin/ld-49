@@ -42,6 +42,7 @@ margin_bottom = 66.0
 [node name="Label" parent="PanelContainer/VSplitContainer/Title/PanelContainer" index="0"]
 margin_right = 1006.0
 margin_bottom = 56.0
+text = "Credits"
 
 [node name="MarginContainer" type="MarginContainer" parent="PanelContainer/VSplitContainer"]
 margin_top = 82.0
