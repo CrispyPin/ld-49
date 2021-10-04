@@ -5,14 +5,19 @@ var currentForce := 0
 
 var since_box = -1
 
+var boxCount = 0
+
 func _ready() -> void:
 	$Deleter.connect("box_consumed", self, "_on_Deleter_box_consumed")
-
 
 func _process(delta):
 	if since_box != -1:
 		since_box += delta
-	if since_box > 0.5:
+	if since_box > 1.0:
+		if !enableEngine:
+			print("---------------")
+			print(Global.stopTimer())
+			print(boxCount)
 		enableEngine = true
 
 	if enableEngine:
@@ -23,5 +28,6 @@ func _process(delta):
 
 func _on_Deleter_box_consumed() -> void:
 	since_box = 0
+	boxCount+=1
 	if $Arrow:
 		$Arrow.queue_free()

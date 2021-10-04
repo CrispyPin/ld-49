@@ -8,6 +8,23 @@ var tileMutex := Mutex.new()
 
 var playerDeleteMargin : float= 8
 
+var scoreTimer = 0.0
+var enableScoreTimer = false
+
+func startTimer():
+	enableScoreTimer = true
+
+func stopTimer():
+	var tmp = scoreTimer
+	enableScoreTimer = false
+	scoreTimer = 0.0
+	return tmp
+
+func _process(delta):
+	if enableScoreTimer:
+		scoreTimer+=delta
+
+
 const PAUSE_IN_MENU  = true
 const CAPTURE_CURSOR = false
 
