@@ -11,6 +11,8 @@ const item_variants = [
 	preload("res://scenes/shelf-items/ShelfItem-2.tscn"),
 	preload("res://scenes/shelf-items/ShelfItem-3.tscn"),
 	preload("res://scenes/shelf-items/ShelfItem-4.tscn"),
+	preload("res://scenes/shelf-items/ShelfItem-5.tscn"),
+	preload("res://scenes/shelf-items/ShelfItem-6.tscn"),
 ]
 
 const container_variants = [
@@ -151,5 +153,6 @@ func add_item(pos: Vector3):
 	if randf() < 0.01:
 		item = shork_item.instance()
 	item.translation = pos
+	item.rotation_degrees.y = randf()*360
 	add_child(item)
 
