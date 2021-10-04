@@ -8,6 +8,7 @@ var since_box = -1
 var boxCount = 0
 
 func _ready() -> void:
+	engine_force = 0
 	$Deleter.connect("box_consumed", self, "_on_Deleter_box_consumed")
 
 func _process(delta):

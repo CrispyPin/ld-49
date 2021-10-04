@@ -122,6 +122,7 @@ toggle_tutorial={
 3d_physics/layer_4="dodeca_copter"
 3d_physics/layer_5="camera_ray"
 3d_physics/layer_6="wall_door"
+3d_physics/layer_7="valuedbox"
 
 [physics]
 

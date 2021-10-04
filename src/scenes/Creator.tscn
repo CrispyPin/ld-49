@@ -154,6 +154,7 @@ mesh = SubResource( 6 )
 material/0 = ExtResource( 7 )
 
 [connection signal="body_entered" from="pipeLower/BoxConsumer" to="pipeLower/BoxConsumer" method="_on_BoxConsumer_body_entered"]
+[connection signal="body_exited" from="Area" to="pipeLower/BoxConsumer" method="_on_Area_body_exited"]
 
 [editable path="Arrows/arrow/arrow"]
 [editable path="Arrows/arrow/arrow2"]
