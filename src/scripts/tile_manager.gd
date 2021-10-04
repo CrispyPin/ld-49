@@ -8,7 +8,7 @@ export var wall_l = false
 
 export var distance = 350
 export var tile_size = 64
-export var back_distance = 64
+export var back_distance = 150
 
 
 var player

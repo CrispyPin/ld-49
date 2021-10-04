@@ -1,19 +1,18 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/TileManager.tscn" type="PackedScene" id=2]
 [ext_resource path="res://warehouse_env.tres" type="Environment" id=3]
-[ext_resource path="res://scenes/ValuedBox.tscn" type="PackedScene" id=4]
-[ext_resource path="res://scenes/Conveyor.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/WallDoor.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/CameraRoot.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/Creator.tscn" type="PackedScene" id=7]
-[ext_resource path="res://scenes/Truck.tscn" type="PackedScene" id=8]
 [ext_resource path="res://scenes/containers/Forklift.tscn" type="PackedScene" id=9]
 [ext_resource path="res://scripts/ChildConsumer.gd" type="Script" id=10]
 
 [node name="Game" type="Node"]
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 32, 0, 0 )
 
 [node name="TileManager" parent="." instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.0310125 )
@@ -26,26 +25,16 @@ wall_r = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 64, 0, 0 )
 wall_l = true
 
-[node name="Tile" parent="TileManager2" index="0"]
-wall_l = true
-
-[node name="ValuedBox" parent="." instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.24442, 0 )
+[node name="WallDoor" parent="TileManager2/Tile" index="4" instance=ExtResource( 4 )]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource( 3 )
-
-[node name="Conveyor" parent="." instance=ExtResource( 5 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5.82898 )
 
 [node name="Creator" parent="." instance=ExtResource( 7 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.64508, 2.68911, 0 )
 
 [node name="Forklift" parent="." instance=ExtResource( 9 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.18124, 0.737369, 0 )
-
-[node name="Truck" parent="." instance=ExtResource( 8 )]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 37.3511, 2.6665, -18.1818 )
 
 [node name="CameraRoot" parent="." instance=ExtResource( 6 )]
 

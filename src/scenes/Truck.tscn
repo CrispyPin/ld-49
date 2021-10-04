@@ -1,20 +1,27 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://models/truck/truck.glb" type="PackedScene" id=1]
 [ext_resource path="res://models/wheel.glb" type="PackedScene" id=2]
 [ext_resource path="res://scripts/BoxConsumer.gd" type="Script" id=3]
+[ext_resource path="res://scripts/Truck.gd" type="Script" id=4]
 
 [sub_resource type="BoxShape" id=1]
 extents = Vector3( 4.07273, 1.47095, 19.9995 )
 
+[sub_resource type="BoxShape" id=4]
+extents = Vector3( 4, 1, 12 )
+
 [sub_resource type="BoxShape" id=2]
-extents = Vector3( 23.7314, 3.70564, 6.72367 )
+extents = Vector3( 2.91409, 3.70564, 2.17229 )
 
 [sub_resource type="BoxShape" id=3]
 extents = Vector3( 1.97748, 0.56653, 8.24696 )
 
 [node name="Truck" type="VehicleBody"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.04345, 0 )
+collision_layer = 48
+collision_mask = 32
+script = ExtResource( 4 )
 
 [node name="truck" parent="." instance=ExtResource( 1 )]
 
@@ -112,20 +119,23 @@ transform = Transform( -2, 0, 0, 0, -2, 0, 0, 0, -2, 0, 0, 0 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.12314, -16.9242 )
 shape = SubResource( 1 )
 
+[node name="roof" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 14, -18 )
+shape = SubResource( 4 )
+
 [node name="Deleter" type="Area" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8.79882, -29.4585 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8.79882, -22.7962 )
 script = ExtResource( 3 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Deleter"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.012929, 1.42295 )
 shape = SubResource( 2 )
 
 [node name="conveyor" type="StaticBody" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.59177, -34.4006 )
-constant_linear_velocity = Vector3( 0, 0, 1 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.59177, -30.9006 )
+constant_linear_velocity = Vector3( 3, 0, 0 )
 
 [node name="CollisionShape" type="CollisionShape" parent="conveyor"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.58888 )
 shape = SubResource( 3 )
 
 [connection signal="body_entered" from="Deleter" to="Deleter" method="_on_BoxConsumer_body_entered"]
+[connection signal="box_consumed" from="Deleter" to="." method="_on_Deleter_box_consumed"]

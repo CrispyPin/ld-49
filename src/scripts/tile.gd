@@ -26,9 +26,9 @@ const forklift = preload("res://scenes/containers/Forklift.tscn")
 const enemy = preload("res://scenes/DodecaCopter.tscn")
 
 const wall = preload("res://scenes/Wall.tscn")
+const wall_door = preload("res://scenes/WallDoor.tscn")
 
 const creator = preload("res://scenes/Creator.tscn")
-const truck = preload("res://scenes/Truck.tscn")
 
 var isTruck : bool = false
 var isCreator : bool = false
@@ -36,7 +36,7 @@ var isCreator : bool = false
 export var disable_spawning = false
 export var container_chance = 0.15
 export var forklift_chance = 0.2
-export var enemy_in_shelf_chance = 0.02
+export var enemy_in_shelf_chance = 0.01
 export var container_count = 8
 
 export var wall_r: bool
@@ -44,21 +44,30 @@ export var wall_l: bool
 
 func _ready() -> void:
 	if wall_r:
-		var w = wall.instance()
+		var w
+		if isTruck:
+			w = wall_door.instance()
+		else:
+			w = wall.instance()
 		w.translation.x = -36
 		w.rotation_degrees.y = 180
 		add_child(w)
 	if wall_l:
-		var w = wall.instance()
+		var w
+		if isTruck:
+			w = wall_door.instance()
+		else:
+			w = wall.instance()
 		w.translation.x = 36
 		add_child(w)
+
 	if disable_spawning:
 		return
 	if isCreator:
 		add_child(creator.instance())
 		return
 	if isTruck:
-		add_child(truck.instance())
+#		add_child(truck.instance())
 		return
 
 

@@ -17,7 +17,7 @@ extents = Vector3( 1.994, 2.912, 0.395 )
 extents = Vector3( 1.345, 4.30917, 1.345 )
 
 [sub_resource type="BoxShape" id=5]
-extents = Vector3( 2, 10, 2 )
+extents = Vector3( 4, 10, 4 )
 
 [node name="Creator" type="Spatial"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.68274, 0 )
@@ -32,7 +32,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.588, 0 )
 shape = SubResource( 1 )
 
 [node name="PlayerBarrier" type="StaticBody" parent="pipeLower"]
-collision_layer = 2
+collision_layer = 18
 collision_mask = 2
 
 [node name="CollisionShape" type="CollisionShape" parent="pipeLower/PlayerBarrier"]
@@ -62,7 +62,7 @@ transform = Transform( 1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 14.1
 
 [node name="PlayerBarrier" type="StaticBody" parent="pipeLower/pipeUpper"]
 transform = Transform( 1, 0, 0, 0, -1, -8.74228e-08, 0, 8.74228e-08, -1, 0, 3.25914, -2.84923e-07 )
-collision_layer = 2
+collision_layer = 18
 collision_mask = 2
 
 [node name="CollisionShape" type="CollisionShape" parent="pipeLower/pipeUpper/PlayerBarrier"]
