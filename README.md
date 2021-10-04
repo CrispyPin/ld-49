@@ -1,2 +1,4 @@
 # Ludum dare 49
-idk the theme is not announced yet
+Theme: Unstable
+
+This game is chaos
