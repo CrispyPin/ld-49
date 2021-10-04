@@ -21,7 +21,7 @@ extents = Vector3( 1.994, 2.912, 0.395 )
 extents = Vector3( 1.345, 4.30917, 1.345 )
 
 [sub_resource type="BoxShape" id=5]
-extents = Vector3( 8, 10, 8 )
+extents = Vector3( 4, 10, 4 )
 
 [sub_resource type="ArrayMesh" id=6]
 resource_name = "arrow"
@@ -144,12 +144,14 @@ script = ExtResource( 6 )
 transform = Transform( 2, 0, 0, 0, -8.74228e-08, -2, 0, 2, -8.74228e-08, 0, 7, 0 )
 
 [node name="arrow" parent="Arrows/arrow/arrow" index="0"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
 material/0 = ExtResource( 7 )
 
 [node name="arrow2" parent="Arrows/arrow" instance=ExtResource( 4 )]
 transform = Transform( -2, -1.74846e-07, 7.64274e-15, 0, -8.74228e-08, -2, 1.74846e-07, -2, 8.74228e-08, 0, 7, 0 )
 
 [node name="arrow" parent="Arrows/arrow/arrow2" index="0"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8.7423e-08, 1, 0 )
 mesh = SubResource( 6 )
 material/0 = ExtResource( 7 )
 
