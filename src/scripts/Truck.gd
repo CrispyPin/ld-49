@@ -2,12 +2,19 @@ extends VehicleBody
 
 var enableEngine := false
 var currentForce := 0
+
+var since_box = -1
+
 func _ready() -> void:
-	#engine_force = 1*mass
 	$Deleter.connect("box_consumed", self, "_on_Deleter_box_consumed")
-	pass
+
 
 func _process(delta):
+	if since_box != -1:
+		since_box += delta
+	if since_box > 0.5:
+		enableEngine = true
+
 	if enableEngine:
 		currentForce += delta*mass*0.3
 		engine_force = currentForce
@@ -15,4 +22,6 @@ func _process(delta):
 		engine_force = 0
 
 func _on_Deleter_box_consumed() -> void:
-	enableEngine = true
+	since_box = 0
+	if $Arrow:
+		$Arrow.queue_free()
