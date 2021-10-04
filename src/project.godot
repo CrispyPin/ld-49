@@ -24,10 +24,6 @@ UI="*res://scenes/ui/UI.tscn"
 gdscript/warnings/unused_variable=false
 gdscript/warnings/unused_argument=false
 
-[display]
-
-window/vsync/use_vsync=false
-
 [editor]
 
 convert_text_resources_to_binary_on_export=true
