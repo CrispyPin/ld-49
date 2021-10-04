@@ -13,43 +13,44 @@ const CAPTURE_CURSOR = false
 
 const DEBUG_SETTINGS = false
 const SETTINGS_PATH = "user://settings.json"
-const SETTINGS_DEF = {
-    "example_toggle": {
-        "name": "Toggle (main menu)",
-        "flags": ["main_menu_only"],
-        "tooltip": "tooltip here",
-        "type": "toggle",
-        "default": false
-    },
-    "example_toggle2": {
-        "name": "Toggle",
-        "flags": [],
-        "type": "toggle",
-        "default": false
-    },
-    "example_toggle5": {
-        "name": "Toggle (main menu)",
-        "flags": ["main_menu_only"],
-        "type": "toggle",
-        "default": false
-    },
-    "example_number": {
-        "name": "Number setting",
-        "flags": [],
-        "type": "number",
-        "default": 420,
-        "min": 1,
-        "max": 10000,
-        "step": 1#optional
-    },
-    "example_choice": {
-        "name": "Dropdown: ",
-        "flags": [],
-        "type": "choice",
-        "default": 1,
-        "options": ["Option A", "Option B", "Option C"]
-    }
-}
+const SETTINGS_DEF = {}
+#{
+#    "example_toggle": {
+#        "name": "Toggle (main menu)",
+#        "flags": ["main_menu_only"],
+#        "tooltip": "tooltip here",
+#        "type": "toggle",
+#        "default": false
+#    },
+#    "example_toggle2": {
+#        "name": "Toggle",
+#        "flags": [],
+#        "type": "toggle",
+#        "default": false
+#    },
+#    "example_toggle5": {
+#        "name": "Toggle (main menu)",
+#        "flags": ["main_menu_only"],
+#        "type": "toggle",
+#        "default": false
+#    },
+#    "example_number": {
+#        "name": "Number setting",
+#        "flags": [],
+#        "type": "number",
+#        "default": 420,
+#        "min": 1,
+#        "max": 10000,
+#        "step": 1#optional
+#    },
+#    "example_choice": {
+#        "name": "Dropdown: ",
+#        "flags": [],
+#        "type": "choice",
+#        "default": 1,
+#        "options": ["Option A", "Option B", "Option C"]
+#    }
+#}
 
 var game_loaded = false
 var settings_loaded = false

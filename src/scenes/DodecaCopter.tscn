@@ -1,13 +1,10 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://models/dodecacopter/dodecacopter.glb" type="PackedScene" id=1]
 [ext_resource path="res://scripts/dodecacopter_prop.gd" type="Script" id=2]
 [ext_resource path="res://scripts/dodeca_copter.gd" type="Script" id=4]
 
 [sub_resource type="SphereShape" id=1]
-
-[sub_resource type="SphereShape" id=2]
-radius = 20.0
 
 [node name="DodecaCopter" type="RigidBody"]
 collision_layer = 13
@@ -22,12 +19,5 @@ rot_speed = 24
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
 shape = SubResource( 1 )
-
-[node name="Area" type="Area" parent="."]
-
-[node name="CollisionShape" type="CollisionShape" parent="Area"]
-shape = SubResource( 2 )
-
-[connection signal="body_entered" from="Area" to="." method="_on_Area_body_entered"]
 
 [editable path="dodecacopter"]

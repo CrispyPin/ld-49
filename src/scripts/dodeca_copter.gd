@@ -2,16 +2,10 @@ extends RigidBody
 
 
 onready var player = get_node("/root/Game/Player")
-var target := Vector3()
-var attack := false
-
-func _ready() -> void:
-	pass
 
 var maxSpeed = 20
 var forceFactor = 5
 var playerSpeedFactor: float = 0.003*forceFactor
-
 
 
 func _physics_process(delta: float) -> void:
@@ -27,14 +21,3 @@ func _physics_process(delta: float) -> void:
 	add_central_force(forceFactor*total)
 	if (linear_velocity.length()>maxSpeed):
 		add_central_force(-linear_velocity.normalized()*10)
-	#	if attack:
-	#		linear_velocity = (target - global_transform.origin).normalized() * 8
-	#		if (translation - target).length() < 8:
-	#			#attack = false
-	#			pass
-
-
-func _on_Area_body_entered(body: Spatial) -> void:
-	if body.is_in_group("player"):# and !attack:
-		target = body.translation
-		attack = true
