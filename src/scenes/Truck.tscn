@@ -28,9 +28,11 @@ extents = Vector3( 3, 2.74349, 3 )
 
 [node name="Truck" type="VehicleBody"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.04345, 0 )
-collision_layer = 49
-collision_mask = 32
 mass = 400.0
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
 script = ExtResource( 4 )
 
 [node name="truck" parent="." instance=ExtResource( 1 )]
