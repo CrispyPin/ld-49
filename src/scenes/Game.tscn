@@ -1,12 +1,13 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/TileManager.tscn" type="PackedScene" id=2]
 [ext_resource path="res://warehouse_env.tres" type="Environment" id=3]
-[ext_resource path="res://scripts/ScoreDisplayer.gd" type="Script" id=4]
+[ext_resource path="res://scenes/Tutorial.tscn" type="PackedScene" id=4]
 [ext_resource path="res://themes/fonts/OpenSans-Bold.ttf" type="DynamicFontData" id=5]
 [ext_resource path="res://scenes/CameraRoot.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/Creator.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scripts/ScoreDisplayer.gd" type="Script" id=8]
 [ext_resource path="res://scenes/containers/Forklift.tscn" type="PackedScene" id=9]
 [ext_resource path="res://scripts/ChildConsumer.gd" type="Script" id=10]
 
@@ -60,10 +61,12 @@ custom_fonts/normal_font = SubResource( 2 )
 text = "EXAMPLE TEXT HERE
 
 MULTILINE EVEN!"
-script = ExtResource( 4 )
+script = ExtResource( 8 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Tutorial" parent="." instance=ExtResource( 4 )]
 
 [editable path="TileManager"]
 [editable path="TileManager2"]
