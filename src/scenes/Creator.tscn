@@ -21,7 +21,7 @@ extents = Vector3( 1.994, 2.912, 0.395 )
 extents = Vector3( 1.345, 4.30917, 1.345 )
 
 [sub_resource type="BoxShape" id=5]
-extents = Vector3( 4, 10, 4 )
+extents = Vector3( 8, 10, 8 )
 
 [sub_resource type="ArrayMesh" id=6]
 resource_name = "arrow"
