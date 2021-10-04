@@ -25,6 +25,8 @@ func _process(delta):
 	else:
 		engine_force = 0
 
+	axis_lock_linear_x = not enableEngine		
+
 func _on_Deleter_box_consumed() -> void:
 	since_box = 0
 	boxCount+=1
