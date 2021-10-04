@@ -28,10 +28,6 @@ func _process(delta):
 
 func _on_Deleter_box_consumed() -> void:
 	since_box = 0
-<<<<<<< HEAD
-	if get_node_or_null("Arrow"):
-=======
 	boxCount+=1
-	if $Arrow:
->>>>>>> bd833cd8a0388430ef1294c8140fa8128d82a2af
+	if get_node_or_null("Arrow"):
 		$Arrow.queue_free()

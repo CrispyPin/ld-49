@@ -8,9 +8,8 @@ var tileMutex := Mutex.new()
 
 var playerDeleteMargin : float= 8
 
-<<<<<<< HEAD
 var enable_tutorial := false
-=======
+
 var scoreTimer = 0.0
 var enableScoreTimer = false
 
@@ -27,7 +26,6 @@ func _process(delta):
 	if enableScoreTimer:
 		scoreTimer+=delta
 
->>>>>>> bd833cd8a0388430ef1294c8140fa8128d82a2af
 
 const PAUSE_IN_MENU  = true
 const CAPTURE_CURSOR = false
