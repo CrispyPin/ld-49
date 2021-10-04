@@ -18,8 +18,6 @@ var tiles
 var numTiles = 0
 
 
-#Global.
-
 func _ready() -> void:
 	randomize()
 	player = get_node("/root/Game/Player")

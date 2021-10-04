@@ -1,9 +1,8 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/TileManager.tscn" type="PackedScene" id=2]
 [ext_resource path="res://warehouse_env.tres" type="Environment" id=3]
-[ext_resource path="res://scenes/WallDoor.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/CameraRoot.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/Creator.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scenes/containers/Forklift.tscn" type="PackedScene" id=9]
@@ -12,7 +11,7 @@
 [node name="Game" type="Node"]
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 32, 0, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.2, 0, 14.3 )
 
 [node name="TileManager" parent="." instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.0310125 )
@@ -25,7 +24,8 @@ wall_r = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 64, 0, 0 )
 wall_l = true
 
-[node name="WallDoor" parent="TileManager2/Tile" index="2" instance=ExtResource( 4 )]
+[node name="Tile" parent="TileManager2" index="0"]
+wall_l = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource( 3 )

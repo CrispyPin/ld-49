@@ -36,13 +36,15 @@ var isCreator : bool = false
 export var disable_spawning = false
 export var container_chance = 0.15
 export var forklift_chance = 0.2
-export var enemy_in_shelf_chance = 0.01
+export var enemy_chance_per_distance = 0.003
+var enemy_chance = 0
 export var container_count = 8
 
 export var wall_r: bool
 export var wall_l: bool
 
 func _ready() -> void:
+	enemy_chance = enemy_chance_per_distance * -get_parent().pos_z * 0.01
 	if wall_r:
 		var w
 		if isTruck:
@@ -64,7 +66,9 @@ func _ready() -> void:
 	if disable_spawning:
 		return
 	if isCreator:
-		add_child(creator.instance())
+		var pipe = creator.instance()
+		pipe.translation.x = -8
+		add_child(pipe)
 		return
 	if isTruck:
 #		add_child(truck.instance())
@@ -133,7 +137,7 @@ func fill_shelf(shelf) -> void:
 		if randf() < 0.4:
 			continue
 		var pos = s.translation + shelf.translation
-		if randf() < enemy_in_shelf_chance:
+		if randf() < enemy_chance and s.translation.y < 10:
 			var e = enemy.instance()
 			e.translation = pos
 			add_child(e)

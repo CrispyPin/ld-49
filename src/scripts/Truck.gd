@@ -15,5 +15,4 @@ func _process(delta):
 		engine_force = 0
 
 func _on_Deleter_box_consumed() -> void:
-	print("DELETE SIGNAL RECIVED")
 	enableEngine = true
