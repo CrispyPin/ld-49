@@ -30,9 +30,11 @@ var maxTilt := 2.0
 
 var extraLateralAccelerationFactor := 2#1.5
 
+var heightSlowDown := 6
+
 func _integrate_forces(state):
 	#state.set_angular_velocity(Vector3(0,yAcceleration,0))
-	var heightSlowDownFactor = max(0,translation.y-4)*3
+	var heightSlowDownFactor = max(0,translation.y-4)*heightSlowDown
 	var adjustedMaxSpeed = max(maxLateralSpeed-heightSlowDownFactor,maxLateralSpeed*0.3)
 	var xzdir : Vector2 = (yMotorDir*(
 		Vector2(xdir, zdir) - Vector2(linear_velocity.x, linear_velocity.z)/(adjustedMaxSpeed/extraLateralAccelerationFactor)
