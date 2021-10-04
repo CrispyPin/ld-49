@@ -15,3 +15,8 @@ func _on_InfoButton_pressed():
 
 func _on_ExitButton_pressed():
     get_tree().quit()
+
+
+func _on_TutorialButton_pressed() -> void:
+	Global.enable_tutorial = true
+	UI.start_game()

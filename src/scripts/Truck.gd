@@ -23,5 +23,5 @@ func _process(delta):
 
 func _on_Deleter_box_consumed() -> void:
 	since_box = 0
-	if $Arrow:
+	if get_node_or_null("Arrow"):
 		$Arrow.queue_free()

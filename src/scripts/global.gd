@@ -8,6 +8,8 @@ var tileMutex := Mutex.new()
 
 var playerDeleteMargin : float= 8
 
+var enable_tutorial := false
+
 const PAUSE_IN_MENU  = true
 const CAPTURE_CURSOR = false
 
