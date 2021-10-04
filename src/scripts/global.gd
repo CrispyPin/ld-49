@@ -11,7 +11,13 @@ var playerDeleteMargin : float= 8
 var scoreTimer = 0.0
 var enableScoreTimer = false
 
+var scores = []
+
+func addScore(time: float, boxCount: int):
+	scores.append([time, boxCount])
+
 func startTimer():
+	scoreTimer = 0.0
 	enableScoreTimer = true
 
 func stopTimer():

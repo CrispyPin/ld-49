@@ -14,11 +14,9 @@ func _process(delta):
 	if since_box != -1:
 		since_box += delta
 	if since_box > 1.0:
-		if !enableEngine:
-			print("---------------")
-			print(Global.stopTimer())
-			print(boxCount)
-		enableEngine = true
+		if enableEngine == false:
+			Global.addScore(Global.stopTimer(), boxCount)
+			enableEngine = true
 
 	if enableEngine:
 		currentForce += delta*mass*0.3
