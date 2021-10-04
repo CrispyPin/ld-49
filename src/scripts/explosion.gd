@@ -13,7 +13,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	time += delta
 	if time > 0.5:
-		if $Area:
+		if get_node_or_null("Area"):
 			$Area.queue_free()
 	if time > 10:
 		queue_free()

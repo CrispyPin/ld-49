@@ -23,7 +23,7 @@ shape = SubResource( 1 )
 
 [node name="Particles" type="Particles" parent="."]
 emitting = false
-amount = 64
+amount = 128
 one_shot = true
 preprocess = 0.2
 explosiveness = 0.3
