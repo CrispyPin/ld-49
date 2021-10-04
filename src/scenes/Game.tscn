@@ -1,12 +1,10 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/TileManager.tscn" type="PackedScene" id=2]
-[ext_resource path="res://warehouse_env.tres" type="Environment" id=3]
 [ext_resource path="res://scenes/Tutorial.tscn" type="PackedScene" id=4]
 [ext_resource path="res://themes/fonts/OpenSans-Bold.ttf" type="DynamicFontData" id=5]
 [ext_resource path="res://scenes/CameraRoot.tscn" type="PackedScene" id=6]
-[ext_resource path="res://scenes/Creator.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scripts/ScoreDisplayer.gd" type="Script" id=8]
 [ext_resource path="res://scenes/containers/Forklift.tscn" type="PackedScene" id=9]
 [ext_resource path="res://scripts/ChildConsumer.gd" type="Script" id=10]
@@ -38,12 +36,6 @@ wall_l = true
 
 [node name="Tile" parent="TileManager2" index="0"]
 wall_l = true
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = ExtResource( 3 )
-
-[node name="Creator" parent="." instance=ExtResource( 7 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.64508, 2.68911, 0 )
 
 [node name="Forklift" parent="." instance=ExtResource( 9 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.18124, 0.737369, 0 )
